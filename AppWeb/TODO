@@ -1,0 +1,11 @@
+//TODO: Revisar conflictos con las siguientes librerias
+npm WARN deprecated ngx-resource@3.6.3: The library is no longer supported. New version of ngx-resource is created with new name rest-core. Please migrate to rest-core + rest-ngx.
+npm WARN deprecated ts-xlsx@0.0.11: since version 0.10.3 of xlsx, it comes with embeded typings
+Actualizar contenido estatico de ultima-ng-5.2.0
+
+npm install --save-dev  --unsafe-perm node-sass
+https://stackoverflow.com/questions/48147896/error-in-cannot-find-module-node-sass
+
+
+File Templates VSCode Extension
+https://github.com/brpaz/vscode-file-templates-ext

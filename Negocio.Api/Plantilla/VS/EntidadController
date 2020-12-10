@@ -1,0 +1,211 @@
+﻿using Negocio.Api.Models;
+using Framework.Constantes;
+using Framework.Util;
+using Negocio.Dominio.Criteria;
+using Negocio.Service;
+using Newtonsoft.Json;
+using Nucleo.Dominio;
+using Nucleo.Presentacion.Helpers;
+using Nucleo.Service;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using Negocio.Dominio.Models;
+using Framework.Exception;
+using Negocio.Dominio.Constantes;
+using Negocio.Dominio.Codigos;
+
+namespace $rootnamespace$
+{
+    public class $fileinputname$Controller : Controller
+    {
+        private readonly ICatalogoService _iCatalogoService;
+        private readonly I$fileinputname$Service _i$fileinputname$Service;        
+        private readonly IApplication _application;
+        private readonly IParametroService _parametroService;
+
+        public $fileinputname$Controller(ICatalogoService iCatalogoService,
+                                    I$fileinputname$Service i$fileinputname$Service,                                    
+                                    IApplication application,
+                                    IParametroService parametroService)
+        {
+            _iCatalogoService = iCatalogoService;
+            _i$fileinputname$Service = i$fileinputname$Service;
+            _application = application;
+            _parametroService = parametroService;
+        }
+
+        // GET: DatosIniciales
+        [HttpGet, ActionName("Get")]
+        public JsonResult DatosIniciales()
+        {
+			/*Recuperar desde catalogo items
+            var tiposPregunta = _iCatalogoService.GetItemsCatalogo(ConstantesCatalogos.CAT_TIPO_PREGUNTA);
+            List<object> tipos = new List<object>();
+            foreach (var ee in tiposPregunta)
+            {
+                var e = new
+                {
+                    value = ee.Id,
+                    label = ee.Nombre,
+                    Codigo = ee.Codigo
+                };
+                tipos.Add(e);
+            }*/
+
+			/*Recuperar desde parametros opcion
+            var periodosAcademicos = _parametroService.Get(CodigosParametros.PARAMETRO_PERIODOS_ACADEMICOS);
+            List<object> periodos = new List<object>();
+            foreach (var op in periodosAcademicos.Opciones)
+            {
+                var o = new
+                {
+                    value = op.Id,
+                    Codigo = op.Texto,
+                    label = op.Valor
+                };
+                periodos.Add(o);
+            }*/       
+
+            var result = new JsonResult
+            {
+                Data = new
+                {
+                    /*tipos,
+                    periodos  */                  
+                },
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+            return result;
+        }
+
+        // POST: $fileinputname$
+        [HttpPost]
+        public JsonResult Index($fileinputname$Criteria criteria)
+        {
+            var resulatdo = _i$fileinputname$Service.GetList(criteria);
+            var vista = (from x in resulatdo.Data
+                         let FechaCreacion = x.FechaCreacion.ToString("o")
+                         select new
+                         {
+                             x.Id,
+                             ...
+                         });
+            var resultado = new
+            {
+                Data = vista,
+                resulatdo.TotalRegistros
+            };
+            return Json(resultado, JsonRequestBehavior.AllowGet);
+        }
+
+        // POST: $fileinputname$/Details
+        [HttpPost]
+        public JsonResult Details($fileinputname$ModeloVista entidad)
+        {
+            if (entidad.Id == 0)
+            {
+                return StatusResponseHelper.JsonIdNulo();
+            }
+
+            var $fileinputname$ = _i$fileinputname$Service.Get(entidad.Id);
+            if ($fileinputname$ == null)
+            {
+                return StatusResponseHelper.JsonNoExiste(entidad.Id);
+            }
+
+            entidad.Codigo = $fileinputname$.Codigo;
+            entidad.Descripcion = $fileinputname$.Texto;            
+            entidad.FechaCreacion = $fileinputname$.FechaCreacion.ToString("o");
+
+            foreach (var i in $fileinputname$.Items)
+            {
+                var item = new ItemsModeloVista();
+                item.Id = i.Id;
+                item.Codigo = i.Codigo;
+                item.Orden = i.Orden;
+                item.Texto = i.Texto;
+                item.TieneGrupo = i.TieneGrupo;
+                item.FechaCreacion = i.FechaCreacion.ToString("o");                
+                entidad.Grupos.Add(item);
+            }
+
+            return Json(entidad, JsonRequestBehavior.AllowGet);
+        }
+
+        // POST: $fileinputname$/Create
+        [HttpPost]
+        public JsonResult Create($fileinputname$ModeloVista entidad)
+        {
+
+            var fechaActual = _application.getDateTime();
+            var $fileinputname$ = new $fileinputname$();
+            $fileinputname$.Codigo = _i$fileinputname$Service.ObtenerCodigo$fileinputname$();
+            $fileinputname$.Texto = entidad.Descripcion;            
+
+            foreach (var imv in entidad.Items)
+            {
+                var item = new Item();
+                item.Codigo = _iEncuestaService.ObtenerCodigoGrupo();
+                item.Orden = imv.Orden;
+                item.Texto = imv.Texto;
+                
+                $fileinputname$.Items.Add(item);
+            }
+
+            _i$fileinputname$Service.Guardar($fileinputname$);
+
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
+        // POST: $fileinputname$/Edit
+        [HttpPost]
+        public JsonResult Edit($fileinputname$ModeloVista entidad)
+        {
+            var $fileinputname$ = _i$fileinputname$Service.Get(entidad.Id);
+            $fileinputname$.Texto = entidad.Descripcion;
+
+            //Actualizados -> Items
+            var actItems = $fileinputname$.Items.Where(c => entidad.Items.Any(d => c.Id == d.Id));
+
+            foreach (var actualizado in actItems)
+            {
+                var elemento = entidad.Items.FirstOrDefault(i => i.Id == actualizado.Id);
+                if (elemento != null)
+                {
+                    actualizado.Orden = elemento.Orden;
+                    actualizado.Texto = elemento.Texto;
+                }
+            }
+
+            //Nuevos -> Items
+            var nueItems = entidad.Items.Where(c => c.Id == 0);
+            foreach (var nuevo in nueItems)
+            {
+                var item = new Item();
+                item.Codigo = _i$fileinputname$Service.ObtenerCodigo_();
+                item.Orden = nuevo.Orden;
+                item.Texto = nuevo.Texto;
+                
+                $fileinputname$.Items.Add(item);
+            }
+
+            //Eliminados -> Items
+            var eliHijos = $fileinputname$.Items.Where(c => entidad.Items.All(d => c.Id != d.Id)).ToList();
+
+            _i$fileinputname$Service.Guardar($fileinputname$, eliHijos);
+
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
+        // POST: $fileinputname$/Delete
+        [HttpPost]
+        public JsonResult Delete($fileinputname$ModeloVista entidad)
+        {
+            _i$fileinputname$Service.Eliminar(entidad.Id);
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
+    }
+
+}

@@ -1,0 +1,23 @@
+﻿using Negocio.Dominio.Models;
+using Negocio.Dominio.Criteria;
+using Framework;
+
+namespace $rootnamespace$
+{
+    public interface I$fileinputname$Service
+    {
+
+		$fileinputname$ Get(int id);
+
+        IPagedListMetaData<$fileinputname$DTO> GetList($fileinputname$Criteria criteria);
+		
+        $fileinputname$ Guardar($fileinputname$ entidad);
+
+		$fileinputname$ Guardar($fileinputname$ entidad, IList<$fileinputname$Hijo> hijosEliminados);
+
+        void Eliminar(int id);
+
+		string ObtenerCodigo$fileinputname$();
+
+    }
+}

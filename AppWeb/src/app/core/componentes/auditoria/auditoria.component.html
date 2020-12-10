@@ -1,0 +1,162 @@
+<p-fieldset legend="Criterios de Búsqueda" toggleable="true">
+    <form [formGroup]="criteriaForm" (ngSubmit)="resetearPaginacionYBuscar()">
+        <div class="ui-g ui-fluid">
+            <div class="ui-g-12">
+                <div class="ui-g-12 ui-md-6">
+                    <span class="md-inputfield">
+                        <input formControlName="Cuenta" type="text" pInputText>
+                        <label>Cuenta</label>
+                    </span>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <span class="md-inputfield">
+                        <input formControlName="Identificador" type="text" pInputText>
+                        <label>Identificación</label>
+                    </span>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <div class="ui-g-12 ui-md-6">
+                    <span class="md-inputfield">
+                        <input formControlName="Funcionalidad" type="text" pInputText>
+                        <label>Funcionalidad</label>
+                    </span>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <span class="md-inputfield">
+                        <input formControlName="Accion" type="text" pInputText>
+                        <label>Accion</label>
+                    </span>
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <div class="ui-g-2">
+                    <span>Fecha Inicio</span>
+                </div>
+                <div class="ui-g-4">
+                    <p-calendar id="calendar" dateFormat="dd/mm/yy" [locale]="es" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030"
+                        [showIcon]="true" formControlName="FechaInicio"></p-calendar>
+                </div>
+                <div class="ui-g-2">
+                    <span>Fecha Final</span>
+                </div>
+                <div class="ui-g-4">
+                    <p-calendar id="calendar" dateFormat="dd/mm/yy" [locale]="es" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030"
+                        [showIcon]="true" formControlName="FechaFinal"></p-calendar>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="ui-g-12" style="text-align: center;">
+                <button type="submit" pButton icon="ui-icon-search" label="Buscar"></button>
+                <button type="button" pButton icon="ui-icon-clear" label="Limpiar" (click)="limpiarCriteria()"></button>
+            </div>
+        </footer>
+    </form>
+</p-fieldset>
+<BR/>
+<p-dataTable #dtbuscador [value]="lista" selectionMode="single" [(selection)]="seleccionado" [lazy]="true" [rows]="tamanioPagina"
+    [paginator]="true" [totalRecords]="totalRegistros" (onLazyLoad)="buscarPaginado($event)" [emptyMessage]="tablaSinDatos">
+    <p-header>
+        <div class="ui-helper-clearfix">
+            <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:2px">
+                Auditorías
+            </span>
+        </div>
+    </p-header>
+    <p-column header="Número">
+        <ng-template pTemplate="body" let-i="rowIndex">
+            <span>{{i+1}}</span>
+        </ng-template>
+    </p-column>
+    <p-column field="Mensaje" header="Mensaje"></p-column>
+    <p-column field="Nivel" header="Nivel"></p-column>
+    <p-column field="Fecha" header="Fecha">
+        <ng-template let-col let-ent="rowData" pTemplate="body">
+            <span>{{ent[col.field] | date:'yyyy/MM/dd HH:mm:ss'}}</span>
+        </ng-template>
+    </p-column>
+    <p-column field="Usuario" header="Usuario"></p-column>
+    <p-column field="Funcionalidad" header="Funcionalidad"></p-column>
+    <p-column field="Accion" header="Accion"></p-column>
+    <p-column field="Identificacion" header="Identificacion"></p-column>
+    <p-column field="IpAddress" header="Dirección Ip"></p-column>
+    <p-column header="Acción">
+        <ng-template pTemplate="body" let-i="rowIndex">
+            <button pButton type="button" (click)="visualizar(i)" pTooltip="Visualizar" tooltipPosition="left" icon="ui-icon-pageview"></button>
+        </ng-template>
+    </p-column>
+</p-dataTable>
+<p-blockUI [blocked]="alertaEntidad.esBloquear" [target]="pnl"></p-blockUI>
+<p-dialog header="{{alertaEntidad.titulo}}" [(visible)]="alertaEntidad.esVisible" [modal]="true" showEffect="fade" [responsive]="true"
+    [draggable]="false" [resizable]="false" [closable]="true" width="800">
+    <form [formGroup]="entidadForm">
+        <div class="modal-body">
+            <p-panel #pnl class="pnlSinBarraDeTitulo">
+                <div class="ui-g ui-fluid">
+                    <div class="ui-g-12">
+                        <div class="ui-g-12 ui-md-6">
+                            <span class="md-inputfield">
+                                <input formControlName="Mensaje" type="text" pInputText/>
+                                <label>Mensaje</label>
+                            </span>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <span class="md-inputfield">
+                                <input formControlName="Nivel" type="text" pInputText/>
+                                <label>Nivel</label>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-2">
+                            <span>Fecha</span>
+                        </div>
+                        <div class="ui-g-4">
+                            <p-calendar id="calendar" formControlName="Fecha"></p-calendar>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <span class="md-inputfield">
+                                <input formControlName="Usuario" type="text" pInputText/>
+                                <label>Usuario</label>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-12 ui-md-6">
+                            <span class="md-inputfield">
+                                <input formControlName="Funcionalidad" type="text" pInputText/>
+                                <label>Funcionalidad</label>
+                            </span>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <span class="md-inputfield">
+                                <input formControlName="Accion" type="text" pInputText/>
+                                <label>Accion</label>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="ui-g-12">
+                        <div class="ui-g-12 ui-md-6">
+                            <span class="md-inputfield">
+                                <input formControlName="Identificacion" type="text" pInputText/>
+                                <label>Identificación</label>
+                            </span>
+                        </div>
+                        <div class="ui-g-12 ui-md-6">
+                            <span class="md-inputfield">
+                                <input formControlName="IpAddress" type="text" pInputText/>
+                                <label>Dirección Ip</label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </p-panel>
+        </div>
+    </form>
+    <p-footer>
+        <button *ngIf="accion==1||accion==2" type="button" pButton label="Guardar" (click)="guardar()" [disabled]="!entidadForm.valid"></button>
+        <button *ngIf="accion==3" type="button" pButton label="Cerrar" (click)="guardar()"></button>
+        <button *ngIf="accion==0" type="button" pButton label="Eliminar" (click)="guardar()"></button>
+    </p-footer>
+</p-dialog>

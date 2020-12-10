@@ -1,0 +1,35 @@
+<div>
+  <form [formGroup]="entidadForm" style="margin: 100px auto 0 auto; width: 400px">
+    <div class="ui-g ui-fluid">
+      <p-fieldset legend="Cuenta">
+        <div class="ui-g-12">
+          <div class="ui-g-12 ui-md-12">
+            <span class="md-inputfield">
+                    <input formControlName="Clave" type="password" 
+                      pTooltip="Mínimo 8 caracteres, al menos una letra del alfabeto y al menos un número." pInputText/>
+                    <label>Clave</label>
+                </span>
+          </div>
+          <div class="ui-g-12 ui-md-12">
+            <span class="md-inputfield">
+                    <input formControlName="ConfirmarClave" type="password" 
+                      pTooltip="Mínimo 8 caracteres, al menos una letra del alfabeto y al menos un número." pInputText/>
+                    <label>Confirmar Clave</label>
+                </span>
+          </div>
+        </div>
+        <div class="ui-g-12" style="margin: 10px auto 0 auto; width: 400px" *ngIf="esClaveCambiada">
+          <h1><span style="color: #F0810F;">Cambio de clave exitoso.</span></h1>
+          <div>
+          </div>
+          <div class="maincontentbox-reduced">
+            <p>Su nueva clave ha sido guardada. &nbsp; Ahora puede <a href="#/cuenta/login"> iniciar sesión</a>.</p>
+          </div>
+        </div>
+      </p-fieldset>
+      <div class="ui-g-12" style="text-align: right;">
+        <button type="button" pButton label="Guardar" (click)="cambiarClabe()" [disabled]="!entidadForm.valid"></button>
+      </div>
+    </div>
+  </form>
+</div>

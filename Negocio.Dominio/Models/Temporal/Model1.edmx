@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="testModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TNEG_ASIGNACION_DOCENTE">
+          <Key>
+            <PropertyRef Name="ASD_ID" />
+          </Key>
+          <Property Name="ASD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USR_ROL_ID" Type="int" />
+          <Property Name="COE_ID" Type="int" />
+          <Property Name="ASD_FECHA" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TNEG_COMPONENTE_EDUCATIVO">
+          <Key>
+            <PropertyRef Name="COE_ID" />
+          </Key>
+          <Property Name="COE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COE_CODIGO" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="COE_NOMBRE" Type="varchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TNEG_MATRICULA">
+          <Key>
+            <PropertyRef Name="MAT_ID" />
+          </Key>
+          <Property Name="MAT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USR_ROL_ID" Type="int" />
+          <Property Name="COE_ID" Type="int" />
+          <Property Name="MAT_FECHA" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TNEG_RESULTADOS">
+          <Key>
+            <PropertyRef Name="RES_ID" />
+          </Key>
+          <Property Name="RES_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MAT_ID" Type="int" />
+          <Property Name="ASD_ID" Type="int" />
+          <Property Name="RES_DEBERES" Type="int" Nullable="false" />
+          <Property Name="RES_EXAMEN" Type="int" Nullable="false" />
+          <Property Name="RES_FECHA" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TSEG_USUARIO_ROL">
+          <Key>
+            <PropertyRef Name="USR_ROL_ID" />
+          </Key>
+          <Property Name="USR_ROL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ROL_ID" Type="int" Nullable="false" />
+          <Property Name="USR_ID" Type="int" Nullable="false" />
+          <Property Name="VERSION" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TNEG_ASI_REFERENCE_TNEG_COM">
+          <End Role="TNEG_COMPONENTE_EDUCATIVO" Type="Self.TNEG_COMPONENTE_EDUCATIVO" Multiplicity="0..1" />
+          <End Role="TNEG_ASIGNACION_DOCENTE" Type="Self.TNEG_ASIGNACION_DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TNEG_COMPONENTE_EDUCATIVO">
+              <PropertyRef Name="COE_ID" />
+            </Principal>
+            <Dependent Role="TNEG_ASIGNACION_DOCENTE">
+              <PropertyRef Name="COE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TNEG_ASI_REFERENCE_TSEG_USU">
+          <End Role="TSEG_USUARIO_ROL" Type="Self.TSEG_USUARIO_ROL" Multiplicity="0..1" />
+          <End Role="TNEG_ASIGNACION_DOCENTE" Type="Self.TNEG_ASIGNACION_DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TSEG_USUARIO_ROL">
+              <PropertyRef Name="USR_ROL_ID" />
+            </Principal>
+            <Dependent Role="TNEG_ASIGNACION_DOCENTE">
+              <PropertyRef Name="USR_ROL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TNEG_MAT_REFERENCE_TNEG_COM">
+          <End Role="TNEG_COMPONENTE_EDUCATIVO" Type="Self.TNEG_COMPONENTE_EDUCATIVO" Multiplicity="0..1" />
+          <End Role="TNEG_MATRICULA" Type="Self.TNEG_MATRICULA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TNEG_COMPONENTE_EDUCATIVO">
+              <PropertyRef Name="COE_ID" />
+            </Principal>
+            <Dependent Role="TNEG_MATRICULA">
+              <PropertyRef Name="COE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TNEG_MAT_REFERENCE_TSEG_USU">
+          <End Role="TSEG_USUARIO_ROL" Type="Self.TSEG_USUARIO_ROL" Multiplicity="0..1" />
+          <End Role="TNEG_MATRICULA" Type="Self.TNEG_MATRICULA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TSEG_USUARIO_ROL">
+              <PropertyRef Name="USR_ROL_ID" />
+            </Principal>
+            <Dependent Role="TNEG_MATRICULA">
+              <PropertyRef Name="USR_ROL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TNEG_RES_REFERENCE_TNEG_ASI">
+          <End Role="TNEG_ASIGNACION_DOCENTE" Type="Self.TNEG_ASIGNACION_DOCENTE" Multiplicity="0..1" />
+          <End Role="TNEG_RESULTADOS" Type="Self.TNEG_RESULTADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TNEG_ASIGNACION_DOCENTE">
+              <PropertyRef Name="ASD_ID" />
+            </Principal>
+            <Dependent Role="TNEG_RESULTADOS">
+              <PropertyRef Name="ASD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TNEG_RES_REFERENCE_TNEG_MAT">
+          <End Role="TNEG_MATRICULA" Type="Self.TNEG_MATRICULA" Multiplicity="0..1" />
+          <End Role="TNEG_RESULTADOS" Type="Self.TNEG_RESULTADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TNEG_MATRICULA">
+              <PropertyRef Name="MAT_ID" />
+            </Principal>
+            <Dependent Role="TNEG_RESULTADOS">
+              <PropertyRef Name="MAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="testModelStoreContainer">
+          <EntitySet Name="TNEG_ASIGNACION_DOCENTE" EntityType="Self.TNEG_ASIGNACION_DOCENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TNEG_COMPONENTE_EDUCATIVO" EntityType="Self.TNEG_COMPONENTE_EDUCATIVO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TNEG_MATRICULA" EntityType="Self.TNEG_MATRICULA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TNEG_RESULTADOS" EntityType="Self.TNEG_RESULTADOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TSEG_USUARIO_ROL" EntityType="Self.TSEG_USUARIO_ROL" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TNEG_ASI_REFERENCE_TNEG_COM" Association="Self.FK_TNEG_ASI_REFERENCE_TNEG_COM">
+            <End Role="TNEG_COMPONENTE_EDUCATIVO" EntitySet="TNEG_COMPONENTE_EDUCATIVO" />
+            <End Role="TNEG_ASIGNACION_DOCENTE" EntitySet="TNEG_ASIGNACION_DOCENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TNEG_ASI_REFERENCE_TSEG_USU" Association="Self.FK_TNEG_ASI_REFERENCE_TSEG_USU">
+            <End Role="TSEG_USUARIO_ROL" EntitySet="TSEG_USUARIO_ROL" />
+            <End Role="TNEG_ASIGNACION_DOCENTE" EntitySet="TNEG_ASIGNACION_DOCENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TNEG_MAT_REFERENCE_TNEG_COM" Association="Self.FK_TNEG_MAT_REFERENCE_TNEG_COM">
+            <End Role="TNEG_COMPONENTE_EDUCATIVO" EntitySet="TNEG_COMPONENTE_EDUCATIVO" />
+            <End Role="TNEG_MATRICULA" EntitySet="TNEG_MATRICULA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TNEG_MAT_REFERENCE_TSEG_USU" Association="Self.FK_TNEG_MAT_REFERENCE_TSEG_USU">
+            <End Role="TSEG_USUARIO_ROL" EntitySet="TSEG_USUARIO_ROL" />
+            <End Role="TNEG_MATRICULA" EntitySet="TNEG_MATRICULA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TNEG_RES_REFERENCE_TNEG_ASI" Association="Self.FK_TNEG_RES_REFERENCE_TNEG_ASI">
+            <End Role="TNEG_ASIGNACION_DOCENTE" EntitySet="TNEG_ASIGNACION_DOCENTE" />
+            <End Role="TNEG_RESULTADOS" EntitySet="TNEG_RESULTADOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TNEG_RES_REFERENCE_TNEG_MAT" Association="Self.FK_TNEG_RES_REFERENCE_TNEG_MAT">
+            <End Role="TNEG_MATRICULA" EntitySet="TNEG_MATRICULA" />
+            <End Role="TNEG_RESULTADOS" EntitySet="TNEG_RESULTADOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TNEG_ASIGNACION_DOCENTE">
+          <Key>
+            <PropertyRef Name="ASD_ID" />
+          </Key>
+          <Property Name="ASD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USR_ROL_ID" Type="Int32" />
+          <Property Name="COE_ID" Type="Int32" />
+          <Property Name="ASD_FECHA" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="TNEG_COMPONENTE_EDUCATIVO" Relationship="Self.FK_TNEG_ASI_REFERENCE_TNEG_COM" FromRole="TNEG_ASIGNACION_DOCENTE" ToRole="TNEG_COMPONENTE_EDUCATIVO" />
+          <NavigationProperty Name="TSEG_USUARIO_ROL" Relationship="Self.FK_TNEG_ASI_REFERENCE_TSEG_USU" FromRole="TNEG_ASIGNACION_DOCENTE" ToRole="TSEG_USUARIO_ROL" />
+          <NavigationProperty Name="TNEG_RESULTADOS" Relationship="Self.FK_TNEG_RES_REFERENCE_TNEG_ASI" FromRole="TNEG_ASIGNACION_DOCENTE" ToRole="TNEG_RESULTADOS" />
+        </EntityType>
+        <EntityType Name="TNEG_COMPONENTE_EDUCATIVO">
+          <Key>
+            <PropertyRef Name="COE_ID" />
+          </Key>
+          <Property Name="COE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COE_CODIGO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COE_NOMBRE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TNEG_ASIGNACION_DOCENTE" Relationship="Self.FK_TNEG_ASI_REFERENCE_TNEG_COM" FromRole="TNEG_COMPONENTE_EDUCATIVO" ToRole="TNEG_ASIGNACION_DOCENTE" />
+          <NavigationProperty Name="TNEG_MATRICULA" Relationship="Self.FK_TNEG_MAT_REFERENCE_TNEG_COM" FromRole="TNEG_COMPONENTE_EDUCATIVO" ToRole="TNEG_MATRICULA" />
+        </EntityType>
+        <EntityType Name="TNEG_MATRICULA">
+          <Key>
+            <PropertyRef Name="MAT_ID" />
+          </Key>
+          <Property Name="MAT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USR_ROL_ID" Type="Int32" />
+          <Property Name="COE_ID" Type="Int32" />
+          <Property Name="MAT_FECHA" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="TNEG_COMPONENTE_EDUCATIVO" Relationship="Self.FK_TNEG_MAT_REFERENCE_TNEG_COM" FromRole="TNEG_MATRICULA" ToRole="TNEG_COMPONENTE_EDUCATIVO" />
+          <NavigationProperty Name="TSEG_USUARIO_ROL" Relationship="Self.FK_TNEG_MAT_REFERENCE_TSEG_USU" FromRole="TNEG_MATRICULA" ToRole="TSEG_USUARIO_ROL" />
+          <NavigationProperty Name="TNEG_RESULTADOS" Relationship="Self.FK_TNEG_RES_REFERENCE_TNEG_MAT" FromRole="TNEG_MATRICULA" ToRole="TNEG_RESULTADOS" />
+        </EntityType>
+        <EntityType Name="TNEG_RESULTADOS">
+          <Key>
+            <PropertyRef Name="RES_ID" />
+          </Key>
+          <Property Name="RES_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAT_ID" Type="Int32" />
+          <Property Name="ASD_ID" Type="Int32" />
+          <Property Name="RES_DEBERES" Type="Int32" Nullable="false" />
+          <Property Name="RES_EXAMEN" Type="Int32" Nullable="false" />
+          <Property Name="RES_FECHA" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="TNEG_ASIGNACION_DOCENTE" Relationship="Self.FK_TNEG_RES_REFERENCE_TNEG_ASI" FromRole="TNEG_RESULTADOS" ToRole="TNEG_ASIGNACION_DOCENTE" />
+          <NavigationProperty Name="TNEG_MATRICULA" Relationship="Self.FK_TNEG_RES_REFERENCE_TNEG_MAT" FromRole="TNEG_RESULTADOS" ToRole="TNEG_MATRICULA" />
+        </EntityType>
+        <EntityType Name="TSEG_USUARIO_ROL">
+          <Key>
+            <PropertyRef Name="USR_ROL_ID" />
+          </Key>
+          <Property Name="USR_ROL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ROL_ID" Type="Int32" Nullable="false" />
+          <Property Name="USR_ID" Type="Int32" Nullable="false" />
+          <Property Name="VERSION" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TNEG_ASIGNACION_DOCENTE" Relationship="Self.FK_TNEG_ASI_REFERENCE_TSEG_USU" FromRole="TSEG_USUARIO_ROL" ToRole="TNEG_ASIGNACION_DOCENTE" />
+          <NavigationProperty Name="TNEG_MATRICULA" Relationship="Self.FK_TNEG_MAT_REFERENCE_TSEG_USU" FromRole="TSEG_USUARIO_ROL" ToRole="TNEG_MATRICULA" />
+        </EntityType>
+        <Association Name="FK_TNEG_ASI_REFERENCE_TNEG_COM">
+          <End Role="TNEG_COMPONENTE_EDUCATIVO" Type="Self.TNEG_COMPONENTE_EDUCATIVO" Multiplicity="0..1" />
+          <End Role="TNEG_ASIGNACION_DOCENTE" Type="Self.TNEG_ASIGNACION_DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TNEG_COMPONENTE_EDUCATIVO">
+              <PropertyRef Name="COE_ID" />
+            </Principal>
+            <Dependent Role="TNEG_ASIGNACION_DOCENTE">
+              <PropertyRef Name="COE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TNEG_ASI_REFERENCE_TSEG_USU">
+          <End Role="TSEG_USUARIO_ROL" Type="Self.TSEG_USUARIO_ROL" Multiplicity="0..1" />
+          <End Role="TNEG_ASIGNACION_DOCENTE" Type="Self.TNEG_ASIGNACION_DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TSEG_USUARIO_ROL">
+              <PropertyRef Name="USR_ROL_ID" />
+            </Principal>
+            <Dependent Role="TNEG_ASIGNACION_DOCENTE">
+              <PropertyRef Name="USR_ROL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TNEG_RES_REFERENCE_TNEG_ASI">
+          <End Role="TNEG_ASIGNACION_DOCENTE" Type="Self.TNEG_ASIGNACION_DOCENTE" Multiplicity="0..1" />
+          <End Role="TNEG_RESULTADOS" Type="Self.TNEG_RESULTADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TNEG_ASIGNACION_DOCENTE">
+              <PropertyRef Name="ASD_ID" />
+            </Principal>
+            <Dependent Role="TNEG_RESULTADOS">
+              <PropertyRef Name="ASD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TNEG_MAT_REFERENCE_TNEG_COM">
+          <End Role="TNEG_COMPONENTE_EDUCATIVO" Type="Self.TNEG_COMPONENTE_EDUCATIVO" Multiplicity="0..1" />
+          <End Role="TNEG_MATRICULA" Type="Self.TNEG_MATRICULA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TNEG_COMPONENTE_EDUCATIVO">
+              <PropertyRef Name="COE_ID" />
+            </Principal>
+            <Dependent Role="TNEG_MATRICULA">
+              <PropertyRef Name="COE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TNEG_MAT_REFERENCE_TSEG_USU">
+          <End Role="TSEG_USUARIO_ROL" Type="Self.TSEG_USUARIO_ROL" Multiplicity="0..1" />
+          <End Role="TNEG_MATRICULA" Type="Self.TNEG_MATRICULA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TSEG_USUARIO_ROL">
+              <PropertyRef Name="USR_ROL_ID" />
+            </Principal>
+            <Dependent Role="TNEG_MATRICULA">
+              <PropertyRef Name="USR_ROL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TNEG_RES_REFERENCE_TNEG_MAT">
+          <End Role="TNEG_MATRICULA" Type="Self.TNEG_MATRICULA" Multiplicity="0..1" />
+          <End Role="TNEG_RESULTADOS" Type="Self.TNEG_RESULTADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TNEG_MATRICULA">
+              <PropertyRef Name="MAT_ID" />
+            </Principal>
+            <Dependent Role="TNEG_RESULTADOS">
+              <PropertyRef Name="MAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="testEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TNEG_ASIGNACION_DOCENTE" EntityType="Self.TNEG_ASIGNACION_DOCENTE" />
+          <EntitySet Name="TNEG_COMPONENTE_EDUCATIVO" EntityType="Self.TNEG_COMPONENTE_EDUCATIVO" />
+          <EntitySet Name="TNEG_MATRICULA" EntityType="Self.TNEG_MATRICULA" />
+          <EntitySet Name="TNEG_RESULTADOS" EntityType="Self.TNEG_RESULTADOS" />
+          <EntitySet Name="TSEG_USUARIO_ROL" EntityType="Self.TSEG_USUARIO_ROL" />
+          <AssociationSet Name="FK_TNEG_ASI_REFERENCE_TNEG_COM" Association="Self.FK_TNEG_ASI_REFERENCE_TNEG_COM">
+            <End Role="TNEG_COMPONENTE_EDUCATIVO" EntitySet="TNEG_COMPONENTE_EDUCATIVO" />
+            <End Role="TNEG_ASIGNACION_DOCENTE" EntitySet="TNEG_ASIGNACION_DOCENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TNEG_ASI_REFERENCE_TSEG_USU" Association="Self.FK_TNEG_ASI_REFERENCE_TSEG_USU">
+            <End Role="TSEG_USUARIO_ROL" EntitySet="TSEG_USUARIO_ROL" />
+            <End Role="TNEG_ASIGNACION_DOCENTE" EntitySet="TNEG_ASIGNACION_DOCENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TNEG_RES_REFERENCE_TNEG_ASI" Association="Self.FK_TNEG_RES_REFERENCE_TNEG_ASI">
+            <End Role="TNEG_ASIGNACION_DOCENTE" EntitySet="TNEG_ASIGNACION_DOCENTE" />
+            <End Role="TNEG_RESULTADOS" EntitySet="TNEG_RESULTADOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TNEG_MAT_REFERENCE_TNEG_COM" Association="Self.FK_TNEG_MAT_REFERENCE_TNEG_COM">
+            <End Role="TNEG_COMPONENTE_EDUCATIVO" EntitySet="TNEG_COMPONENTE_EDUCATIVO" />
+            <End Role="TNEG_MATRICULA" EntitySet="TNEG_MATRICULA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TNEG_MAT_REFERENCE_TSEG_USU" Association="Self.FK_TNEG_MAT_REFERENCE_TSEG_USU">
+            <End Role="TSEG_USUARIO_ROL" EntitySet="TSEG_USUARIO_ROL" />
+            <End Role="TNEG_MATRICULA" EntitySet="TNEG_MATRICULA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TNEG_RES_REFERENCE_TNEG_MAT" Association="Self.FK_TNEG_RES_REFERENCE_TNEG_MAT">
+            <End Role="TNEG_MATRICULA" EntitySet="TNEG_MATRICULA" />
+            <End Role="TNEG_RESULTADOS" EntitySet="TNEG_RESULTADOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="testModelStoreContainer" CdmEntityContainer="testEntities">
+          <EntitySetMapping Name="TNEG_ASIGNACION_DOCENTE">
+            <EntityTypeMapping TypeName="testModel.TNEG_ASIGNACION_DOCENTE">
+              <MappingFragment StoreEntitySet="TNEG_ASIGNACION_DOCENTE">
+                <ScalarProperty Name="ASD_ID" ColumnName="ASD_ID" />
+                <ScalarProperty Name="USR_ROL_ID" ColumnName="USR_ROL_ID" />
+                <ScalarProperty Name="COE_ID" ColumnName="COE_ID" />
+                <ScalarProperty Name="ASD_FECHA" ColumnName="ASD_FECHA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TNEG_COMPONENTE_EDUCATIVO">
+            <EntityTypeMapping TypeName="testModel.TNEG_COMPONENTE_EDUCATIVO">
+              <MappingFragment StoreEntitySet="TNEG_COMPONENTE_EDUCATIVO">
+                <ScalarProperty Name="COE_ID" ColumnName="COE_ID" />
+                <ScalarProperty Name="COE_CODIGO" ColumnName="COE_CODIGO" />
+                <ScalarProperty Name="COE_NOMBRE" ColumnName="COE_NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TNEG_MATRICULA">
+            <EntityTypeMapping TypeName="testModel.TNEG_MATRICULA">
+              <MappingFragment StoreEntitySet="TNEG_MATRICULA">
+                <ScalarProperty Name="MAT_ID" ColumnName="MAT_ID" />
+                <ScalarProperty Name="USR_ROL_ID" ColumnName="USR_ROL_ID" />
+                <ScalarProperty Name="COE_ID" ColumnName="COE_ID" />
+                <ScalarProperty Name="MAT_FECHA" ColumnName="MAT_FECHA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TNEG_RESULTADOS">
+            <EntityTypeMapping TypeName="testModel.TNEG_RESULTADOS">
+              <MappingFragment StoreEntitySet="TNEG_RESULTADOS">
+                <ScalarProperty Name="RES_ID" ColumnName="RES_ID" />
+                <ScalarProperty Name="MAT_ID" ColumnName="MAT_ID" />
+                <ScalarProperty Name="ASD_ID" ColumnName="ASD_ID" />
+                <ScalarProperty Name="RES_DEBERES" ColumnName="RES_DEBERES" />
+                <ScalarProperty Name="RES_EXAMEN" ColumnName="RES_EXAMEN" />
+                <ScalarProperty Name="RES_FECHA" ColumnName="RES_FECHA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TSEG_USUARIO_ROL">
+            <EntityTypeMapping TypeName="testModel.TSEG_USUARIO_ROL">
+              <MappingFragment StoreEntitySet="TSEG_USUARIO_ROL">
+                <ScalarProperty Name="USR_ROL_ID" ColumnName="USR_ROL_ID" />
+                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+                <ScalarProperty Name="USR_ID" ColumnName="USR_ID" />
+                <ScalarProperty Name="VERSION" ColumnName="VERSION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,100 @@
+<div class="login-body">
+    <div class="ui-g-12" style="text-align: center;padding: 40px 0 20px 0;">
+        <img src="assets/layout/images/favicon.png">
+    </div>
+    <div class="ui-g-12">
+        <div class="card login-panel ui-fluid">
+            <div class="ui-g">
+                <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value,loginForm.valid)">
+                    <div class="modal-body">
+                        <div class="ui-g-12">
+                            <div class="ui-grid-row" style="border-radius: 25px; background-color: #FFF;
+                            border-color: #D2E1EA;
+                            border-style: solid;">
+                                <div class="ui-g-4" style="background-color: #009DD3;
+                            height: 39px;
+                            border-radius: 25px 0px 0px 25px;
+                            padding: 10px;">
+                                    <label for="usuUsuario" style="color: #FFFFFF;">Usuario</label>
+                                </div>
+                                <div class="ui-g-8">
+                                    <input pInputText type="text" id="usuUsuario" formControlName="usuUsuario" />
+                                </div>
+                            </div>
+                            <!--<div class="ui-grid-row">
+                            <div class="ui-grid-col-12">
+                                <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!loginForm.controls['usuUsuario'].valid&&loginForm.controls['usuUsuario'].dirty">
+                                    <i class="fa fa-close"></i> Usuario es requerido
+                                </div>
+                            </div>
+                        </div>-->
+                            <div class="ui-grid-row" style="margin-top: 10px;border-radius: 25px; background-color: #FFF;
+                            border-color: #D2E1EA;
+                            border-style: solid;">
+                                <div class="ui-g-4" style="background-color: #009DD3;
+                            height: 39px;
+                            border-radius: 25px 0px 0px 25px;
+                            padding: 10px;">
+                                    <label for="usuClave" style="color: #FFFFFF;">Clave</label>
+                                </div>
+                                <div class="ui-g-8">
+                                    <input pInputText type="password" id="usuClave" formControlName="usuClave" />
+                                </div>
+                            </div>
+                            <!--<div class="ui-grid-row">
+                            <div class="ui-grid-col-12">
+                                <div class="ui-message ui-messages-error ui-corner-all" *ngIf="!loginForm.controls['usuClave'].valid&&loginForm.controls['usuClave'].dirty">
+                                    <i class="fa fa-close"></i> Clave es requerida
+                                </div>
+                            </div>
+                        </div>-->
+                            <!-- <p-checkbox formControlName="recordarme" binary="true" label="Recordarme" ></p-checkbox>
+            <span class="pull-right">
+                <a [routerLink]="['/cuenta/register']">Registrar</a>
+            </span>  -->
+                        </div>
+
+                        <div class="ui-g-12" style="padding: 0;
+                        padding-bottom: 20px;">
+                            <!-- <button type="button" pButton icon="fa-close" label="Cancelar" [routerLink]="['/inicio']"></button> -->
+                            <button type="submit" pButton icon="fa-check" label="Ingresar" [disabled]="!loginForm.valid" style="background-color:  #0D3A84;
+                            border-radius: 25px;"></button>
+                            <br/>
+                        </div>
+
+                        <hr style="border-top: 2px dashed #849BAB;" />
+                        <div class="ui-g-6">
+                            <a id="olvidoclave" style="color: #009DD3; cursor: pointer" (click)="olvidoClave()">¿Olvidó su Clave?</a>
+                        </div>
+                        <div class="ui-g-6">
+                            <a id="olvidousuario" style="color: #009DD3; cursor: pointer" (click)="olvidoUsuario()">¿Olvidó su Usuario?</a>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-dialog header="{{alertaRecuperacionCredenciales.titulo}}" [(visible)]="alertaRecuperacionCredenciales.esVisible" [modal]="true" showEffect="fade" [responsive]="true" [draggable]="false" [resizable]="false" [closable]="true" width="500">
+    <form [formGroup]="recuperacionCredencialesForm">
+        <div class="ui-fluid">
+            <div class="ui-g-12 ui-md-12">
+                <div>Para restaurar tu {{olvidaste}}, ingresa tu dirección de correo electrónico.
+                </div>
+            </div>
+            <br/>
+            <div class="ui-g-12 ui-md-12">
+                <span class="md-inputfield">
+                    <input formControlName="Correo" type="text" pInputText minusculas/>
+                    <label>Correo</label>
+                </span>
+            </div>
+        </div>
+    </form>
+    <p-footer>
+        <button type="button" pButton icon="fa-close" label="Cancelar" (click)="alertaRecuperacionCredenciales.esVisible=false"></button>
+        <button type="button" pButton icon="fa-check" label="Enviar" [disabled]="!recuperacionCredencialesForm.valid" (click)="procesarRecuperacion()"></button>
+    </p-footer>
+</p-dialog>

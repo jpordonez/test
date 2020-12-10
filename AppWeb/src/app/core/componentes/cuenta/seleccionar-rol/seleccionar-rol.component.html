@@ -1,0 +1,20 @@
+<p-dialog header="{{alertaRol.titulo}}" [(visible)]="alertaRol.esVisible" 
+[modal]="true" showEffect="fade" [responsive]="true" [draggable]="false"
+[resizable]="false" [closable]="false" width="300">
+    <header>
+        Seleccionar un Rol
+    </header>    
+    <form [formGroup]="rolesForm" (ngSubmit)="setRol(rolesForm.value,rolesForm.valid)">
+        <div class="modal-body">
+            <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad">
+                <p-listbox [options]="roles" formControlName="rolCodigo"></p-listbox>              
+            </div>                               
+        </div>
+        <footer>
+            <div class="ui-g-12" style="text-align: center;">
+                <!-- <button type="button" pButton icon="fa-close" label="Cancelar" [routerLink]="['/inicio']"></button> -->
+                <button type="submit" pButton icon="fa-check" label="Aceptar" [disabled]="!rolesForm.valid"></button>
+            </div>
+        </footer>
+    </form>
+</p-dialog>

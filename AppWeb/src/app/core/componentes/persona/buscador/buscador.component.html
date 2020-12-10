@@ -1,0 +1,57 @@
+<p-dialog header="{{alertaBuscador.titulo}}" [(visible)]="alertaBuscador.esVisible" 
+    [modal]="true" showEffect="fade" [responsive]="true" [draggable]="false"
+    [resizable]="false" [closable]="true" width="600">
+        <div class="ui-g">
+			<div class="modal-body">
+				<p-fieldset legend="Criterios de Búsqueda" toggleable="true">    
+					<form [formGroup]="criteriaForm" (ngSubmit)="resetearPaginacionYBuscar()">    
+						<div class="ui-g ui-fluid">
+					    	<div class="ui-g-12">
+					    		<div class="ui-g-12 ui-md-6">
+					                <span class="md-inputfield">
+					                    <input formControlName="Identificacion" type="text" pInputText>
+					                    <label>Identificación</label>
+					                </span>
+					            </div>
+					            <div class="ui-g-12 ui-md-6">
+					                <span class="md-inputfield">
+					                    <input formControlName="Nombre" type="text" pInputText>
+					                    <label>Nombre</label>
+					                </span>
+					            </div>		                        
+						    </div>	
+						    <div class="ui-g-12">	    		
+					            <div class="ui-g-12 ui-md-4">
+					                <span class="md-inputfield">
+					                    <input formControlName="Apellido" type="text" pInputText>
+					                    <label>Apellido</label>
+					                </span>
+					            </div>
+						    </div>		    
+						</div>
+						<p-footer>
+						    <div class="ui-g-12" style="text-align: center;">
+						        <button type="submit" pButton icon="ui-icon-search" label="Buscar"></button>
+								<button type="button" pButton icon="ui-icon-clear" label="Limpiar"
+                				(click)="limpiarCriteria()"></button>
+						    </div>
+						</p-footer>
+					</form> 
+				</p-fieldset>
+				<BR/>
+				<p-dataTable #dtbuscador [value]="lista" selectionMode="single" [(selection)]="seleccionado" [scrollable]="true" scrollHeight="180px" [lazy]="true" 
+				[rows]="tamanioPagina" [paginator]="true" [totalRecords]="totalRegistros"
+				(onLazyLoad)="buscarPaginado($event)" [emptyMessage]="tablaSinDatos">
+					<p-column field="Identificacion" header="Identificación"></p-column>				
+				    <p-column field="Nombres" header="Nombres"></p-column>
+				    <p-column field="Apellidos" header="Apellidos"></p-column>
+				</p-dataTable>
+			</div>			
+			<p-footer style="width:100%; text-align:center;">		
+				<BR/>
+				<div class="ui-helper-clearfix">
+					<button type="button" pButton icon="ui-icon-check" (click)="aceptar()" label="Aceptar" [disabled]="seleccionado==null"></button>
+				</div>
+			</p-footer>
+	    </div>
+</p-dialog>

@@ -1,0 +1,744 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DiariosTematicosPendientes" xml:space="preserve">
+    <value>Sus Diarios Temáticos Pendientes de Registro</value>
+  </data>
+  <data name="DiarioTematicoRegistrar" xml:space="preserve">
+    <value>Registrar Diario Temático</value>
+  </data>
+  <data name="HorarioDocente" xml:space="preserve">
+    <value>Agenda Docente</value>
+  </data>
+  <data name="AsistenciaEstudiantes" xml:space="preserve">
+    <value>Asistencia de Estudiantes</value>
+  </data>
+  <data name="JustificacionEstudianteIndividualViewModel_EstudianteId_DisplayName" xml:space="preserve">
+    <value>Identificación del estudiante (Banner id):</value>
+  </data>
+  <data name="JustificacionEstudianteIndividualViewModel_Fecha_DisplayName" xml:space="preserve">
+    <value>Fecha:</value>
+  </data>
+  <data name="JustificacionEstudianteIndividualDataViewModel_AuthorizedBy_DisplayName" xml:space="preserve">
+    <value>Autorizado por:</value>
+  </data>
+  <data name="JustificacionEstudianteIndividualDataViewModel_TipoMotivoId_DisplayName" xml:space="preserve">
+    <value>Motivo:</value>
+  </data>
+  <data name="JustificacionEstudianteIndividualDataViewModel_Remarks_DisplayName" xml:space="preserve">
+    <value>Observación:</value>
+  </data>
+  <data name="JustificacionEstudianteIndividualDataViewModel_Reference_DisplayName" xml:space="preserve">
+    <value>Referencia:</value>
+  </data>
+  <data name="JustificacionEstudianteMasivaViewModel_Campus_DisplayName" xml:space="preserve">
+    <value>Campus:</value>
+  </data>
+  <data name="JustificacionEstudianteMasivaViewModel_Fecha_DisplayName" xml:space="preserve">
+    <value>Fecha:</value>
+  </data>
+  <data name="JustificacionEstudianteMasivaViewModel_RangoModulos_DisplayName" xml:space="preserve">
+    <value>Rango Módulos:</value>
+  </data>
+  <data name="JustificacionEstudianteMasivaViewModel_Nrc_DisplayName" xml:space="preserve">
+    <value>NRC:</value>
+  </data>
+  <data name="JustificacionEstudianteMasivaDataViewModel_AuthorizedBy_DisplayName" xml:space="preserve">
+    <value>Autorizado por:</value>
+  </data>
+  <data name="JustificacionEstudianteMasivaDataViewModel_TipoMotivoId_DisplayName" xml:space="preserve">
+    <value>Motivo:</value>
+  </data>
+  <data name="JustificacionEstudianteMasivaDataViewModel_Remarks_DisplayName" xml:space="preserve">
+    <value>Observación:</value>
+  </data>
+  <data name="JustificacionEstudianteMasivaDataViewModel_Reference_DisplayName" xml:space="preserve">
+    <value>Referencia:</value>
+  </data>
+  <data name="JustificacionDocenteMasivaViewModel_Campus_DisplayName" xml:space="preserve">
+    <value>Campus:</value>
+  </data>
+  <data name="JustificacionDocenteMasivaViewModel_Fecha_DisplayName" xml:space="preserve">
+    <value>Fecha:</value>
+  </data>
+  <data name="JustificacionDocenteMasivaViewModel_RangoModulos_DisplayName" xml:space="preserve">
+    <value>Rango Módulos:</value>
+  </data>
+  <data name="JustificacionDocenteMasivaViewModel_Nrc_DisplayName" xml:space="preserve">
+    <value>NRC:</value>
+  </data>
+  <data name="JustificacionDocenteMasivaDataViewModel_AuthorizedBy_DisplayName" xml:space="preserve">
+    <value>Autorizado por:</value>
+  </data>
+  <data name="JustificacionDocenteMasivaDataViewModel_TipoMotivoId_DisplayName" xml:space="preserve">
+    <value>Motivo:</value>
+  </data>
+  <data name="JustificacionDocenteMasivaDataViewModel_Remarks_DisplayName" xml:space="preserve">
+    <value>Observación:</value>
+  </data>
+  <data name="JustificacionDocenteMasivaDataViewModel_Reference_DisplayName" xml:space="preserve">
+    <value>Referencia:</value>
+  </data>
+  <data name="AsistenciaMasivaItem_EstudianteId_DisplayName" xml:space="preserve">
+    <value>Identificación</value>
+  </data>
+  <data name="AsistenciaMasivaItem_EstudianteCedula_DisplayName" xml:space="preserve">
+    <value>Cédula</value>
+  </data>
+  <data name="AsistenciaMasivaItem_EstudianteNombreCompleto_DisplayName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="AsistenciaMasivaItem_Asignatura_DisplayName" xml:space="preserve">
+    <value>Asignatura</value>
+  </data>
+  <data name="AsistenciaMasivaItem_Aula_DisplayName" xml:space="preserve">
+    <value>Aula</value>
+  </data>
+  <data name="AsistenciaMasivaItem_Campus_DisplayName" xml:space="preserve">
+    <value>Campus</value>
+  </data>
+  <data name="AsistenciaMasivaItem_Nrc_DisplayFormat" xml:space="preserve">
+    <value>NRC: {0}</value>
+  </data>
+  <data name="AsistenciaEstudianteItem_Asignatura_DisplayName" xml:space="preserve">
+    <value>Asignatura</value>
+  </data>
+  <data name="AsistenciaEstudianteItem_Fecha_DisplayName" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="AsistenciaEstudianteItem_HoraInicio_DisplayName" xml:space="preserve">
+    <value>Hora Inicio</value>
+  </data>
+  <data name="AsistenciaEstudianteItem_HoraFin_DisplayName" xml:space="preserve">
+    <value>Hora Fin</value>
+  </data>
+  <data name="AsistenciaEstudianteItem_Aula_DisplayName" xml:space="preserve">
+    <value>Aula</value>
+  </data>
+  <data name="General_Identification" xml:space="preserve">
+    <value>Identificación</value>
+  </data>
+  <data name="General_Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="General_FullName" xml:space="preserve">
+    <value>Nombre completo</value>
+  </data>
+  <data name="General_Date" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="General_CurrentDate" xml:space="preserve">
+    <value>Fecha actual</value>
+  </data>
+  <data name="General_Module" xml:space="preserve">
+    <value>Módulo</value>
+  </data>
+  <data name="Justificacion_Confirmation_Header" xml:space="preserve">
+    <value>Confirme los datos de las inasistencias a justificar</value>
+  </data>
+  <data name="Justificacion_DataForm_Legend" xml:space="preserve">
+    <value>Llenar los siguientes datos para justificar</value>
+  </data>
+  <data name="Justificacion_Selection_Legend" xml:space="preserve">
+    <value>Seleccionar inasistencia</value>
+  </data>
+  <data name="Justificacion_Absences_Header" xml:space="preserve">
+    <value>Las siguientes inasistencias serán justificadas</value>
+  </data>
+  <data name="Justificacion_Absences_Format" xml:space="preserve">
+    <value>Serán justificadas {0} inasistencias:</value>
+  </data>
+  <data name="Justificacion_FoundRecords_Format" xml:space="preserve">
+    <value>Encontrado(s) {0} registro(s).</value>
+  </data>
+  <data name="Justificacion_Button_Justify" xml:space="preserve">
+    <value>Justificar</value>
+  </data>
+  <data name="Justificacion_Button_JustifyAll" xml:space="preserve">
+    <value>Justificar todas</value>
+  </data>
+  <data name="Justificacion_Button_JustifySelection" xml:space="preserve">
+    <value>Justificar seleccionadas</value>
+  </data>
+  <data name="JustificacionEstudiante_Masiva_Title" xml:space="preserve">
+    <value>Justificación masiva de estudiantes</value>
+  </data>
+  <data name="JustificacionEstudiante_Individual_Title" xml:space="preserve">
+    <value>Justificación Individual de estudiantes</value>
+  </data>
+  <data name="JustificacionDocente_Masiva_Title" xml:space="preserve">
+    <value>Justificación masiva de docentes</value>
+  </data>
+  <data name="JustificacionDocente_Individual_Title" xml:space="preserve">
+    <value>Justificación Individual de docentes</value>
+  </data>
+  <data name="General_ValidationSummary_Message" xml:space="preserve">
+    <value>No se han ingresado los campos obligatorios o existen datos no válidos</value>
+  </data>
+  <data name="JustificacionEstudiante_Masiva_CompletedMessage" xml:space="preserve">
+    <value>Justificación de inasistencias realizada exitosamente</value>
+  </data>
+  <data name="JustificacionEstudiante_Individual_CompletedMessage" xml:space="preserve">
+    <value>Justificación de inasistencia del estudiante realizada exitosamente</value>
+  </data>
+  <data name="JustificacionDocente_Masiva_CompletedMessage" xml:space="preserve">
+    <value>Justificación de inasistencias realizada exitosamente</value>
+  </data>
+  <data name="JustificacionDocente_Individual_CompletedMessage" xml:space="preserve">
+    <value>Justificación de inasistencia del docente realizada exitosamente</value>
+  </data>
+  <data name="JustificacionDocenteFiltrosIndividual_Fecha_DisplayName" xml:space="preserve">
+    <value>Fecha:</value>
+  </data>
+  <data name="JustificacionDocenteFiltrosIndividual_Identificacion_DisplayName" xml:space="preserve">
+    <value>Identificación:</value>
+  </data>
+  <data name="JustificacionDocenteResultadosIndividual_Asignatura_DisplayName" xml:space="preserve">
+    <value>Asignatura</value>
+  </data>
+  <data name="JustificacionDocenteResultadosIndividual_HoraInicio_DisplayName" xml:space="preserve">
+    <value>Hora Inicio</value>
+  </data>
+  <data name="JustificacionDocenteResultadosIndividual_HoraFin_DisplayName" xml:space="preserve">
+    <value>Hora Fin</value>
+  </data>
+  <data name="JustificacionDocenteResultadosIndividual_Aula_DisplayName" xml:space="preserve">
+    <value>Aula</value>
+  </data>
+  <data name="JustificacionDocenteResultadosIndividual_Seleccion_DisplayName" xml:space="preserve">
+    <value>Selección</value>
+  </data>
+  <data name="JustificacionDocenteIndividualDataViewModel_AuthorizedBy_DisplayName" xml:space="preserve">
+    <value>Autorizado por:</value>
+  </data>
+  <data name="JustificacionDocenteIndividualDataViewModel_TipoMotivoId_DisplayName" xml:space="preserve">
+    <value>Motivo:</value>
+  </data>
+  <data name="JustificacionDocenteIndividualDataViewModel_Remarks_DisplayName" xml:space="preserve">
+    <value>Observación:</value>
+  </data>
+  <data name="JustificacionDocenteIndividualDataViewModel_Reference_DisplayName" xml:space="preserve">
+    <value>Referencia:</value>
+  </data>
+  <data name="Button_Confirm" xml:space="preserve">
+    <value>Confirmar</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Button_Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="Button_Yes" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="Button_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Button_New" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="Button_NewF" xml:space="preserve">
+    <value>Nueva</value>
+  </data>
+  <data name="Button_Search" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="Button_Return" xml:space="preserve">
+    <value>Regresar</value>
+  </data>
+  <data name="Button_Close" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="Button_Print" xml:space="preserve">
+    <value>Imprimir</value>
+  </data>
+  <data name="InasistenciaMasivaDocenteItem_DocenteCI_DisplayName" xml:space="preserve">
+    <value>Cédula</value>
+  </data>
+  <data name="InasistenciaMasivaDocenteItem_DocenteNombreCompleto_DisplayName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="InasistenciaMasivaDocenteItem_Asignatura_DisplayName" xml:space="preserve">
+    <value>Asignatura</value>
+  </data>
+  <data name="InasistenciaMasivaDocenteItem_Aula_DisplayName" xml:space="preserve">
+    <value>Aula</value>
+  </data>
+  <data name="InasistenciaMasivaDocenteItem_Campus_DisplayGroupName" xml:space="preserve">
+    <value>Campus: {0}</value>
+  </data>
+  <data name="InasistenciaMasivaDocenteItem_Nrc_DisplayName" xml:space="preserve">
+    <value>NRC</value>
+  </data>
+  <data name="InasistenciaMasivaDocenteItem_Paralelo_DisplayName" xml:space="preserve">
+    <value>Paralelo</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Cedula_DisplayName" xml:space="preserve">
+    <value>Cédula del estudiante:</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Cedula_DisplayShortName" xml:space="preserve">
+    <value>Cédula:</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Nombre_DisplayName" xml:space="preserve">
+    <value>Nombre:</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_CodigoAsignatura_DisplayName" xml:space="preserve">
+    <value>Código de asignatura:</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Asignatura_DisplayName" xml:space="preserve">
+    <value>Nombre de la asignatura:</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Total_DisplayName" xml:space="preserve">
+    <value>Clases dictadas</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Asistencias_DisplayName" xml:space="preserve">
+    <value>Asistencias</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Inasistencias_DisplayName" xml:space="preserve">
+    <value>Inasistencias</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_InasistenciasJustificadas_DisplayName" xml:space="preserve">
+    <value>Inasistencias justificadas</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Faltas_DisplayName" xml:space="preserve">
+    <value>Faltas</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Porciento_DisplayName" xml:space="preserve">
+    <value>% de faltas</value>
+  </data>
+  <data name="ConsultaAsistenciasEstudiante_Title" xml:space="preserve">
+    <value>Consulta de asistencia de estudiantes</value>
+  </data>
+  <data name="ConsultaAsistenciasEstudianteDetalles_TitleFormat" xml:space="preserve">
+    <value>Detalle de asistencia de estudiante {0} ({1}) ({2})</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Button_Details" xml:space="preserve">
+    <value>detalles...</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Fecha_DisplayName" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Horario_DisplayName" xml:space="preserve">
+    <value>Horario</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Docente_DisplayName" xml:space="preserve">
+    <value>Docente</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Inasistencia_DisplayName" xml:space="preserve">
+    <value>Inasistencia</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_InasistenciaJustificada_DisplayName" xml:space="preserve">
+    <value>Justificada</value>
+  </data>
+  <data name="ClaseExtraViewModel_Escuela_DisplayName" xml:space="preserve">
+    <value>Escuela:</value>
+  </data>
+  <data name="ClaseExtraViewModel_DocenteId_DisplayName" xml:space="preserve">
+    <value>Docente:</value>
+  </data>
+  <data name="ClaseExtraViewModel_DocenteId_DisplayPrompt" xml:space="preserve">
+    <value>Nombre, id, cédula o pasaporte</value>
+  </data>
+  <data name="ClaseExtraViewModel_Periodo_DisplayName" xml:space="preserve">
+    <value>Periodo:</value>
+  </data>
+  <data name="ClaseExtraViewModel_Nrc_DisplayName" xml:space="preserve">
+    <value>NRC:</value>
+  </data>
+  <data name="ClaseExtraViewModel_Asignatura_DisplayName" xml:space="preserve">
+    <value>Asignatura:</value>
+  </data>
+  <data name="ClaseExtraViewModel_TipoActividadId_DisplayName" xml:space="preserve">
+    <value>Tipo actividad:</value>
+  </data>
+  <data name="ClaseExtraViewModel_Observaciones_DisplayName" xml:space="preserve">
+    <value>Observaciones:</value>
+  </data>
+  <data name="ClaseExtraViewModel_Fecha_DisplayName" xml:space="preserve">
+    <value>Fecha:</value>
+  </data>
+  <data name="ClaseExtraViewModel_Sesiones_DisplayName" xml:space="preserve">
+    <value>Número de clases:</value>
+  </data>
+  <data name="ClaseExtraViewModel_Paralelo_DisplayName" xml:space="preserve">
+    <value>Paralelo:</value>
+  </data>
+  <data name="AgendaClaseExtraViewModelItem_Fecha_DisplayName" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="AgendaClaseExtraViewModelItem_Identificación_DisplayName" xml:space="preserve">
+    <value>Docente</value>
+  </data>
+  <data name="AgendaClaseExtraViewModelItem_Escuela_DisplayName" xml:space="preserve">
+    <value>Escuela</value>
+  </data>
+  <data name="AgendaClaseExtraViewModelItem_Asignatura_DisplayName" xml:space="preserve">
+    <value>Asignatura</value>
+  </data>
+  <data name="AgendaClaseExtraViewModelItem_Paralelo_DisplayName" xml:space="preserve">
+    <value>Paralelo</value>
+  </data>
+  <data name="AgendaClaseExtraViewModelItem_NúmeroClases_DisplayName" xml:space="preserve">
+    <value>Número Clases</value>
+  </data>
+  <data name="AgendaClaseExtra_Button_Index" xml:space="preserve">
+    <value>Regresar a la lista de actividades extras</value>
+  </data>
+  <data name="AgendaClaseExtra_Button_Cancel" xml:space="preserve">
+    <value>Cancelar y regresar a la lista de actividades extras</value>
+  </data>
+  <data name="AgendaClaseExtra_Create_Title" xml:space="preserve">
+    <value>Crear nueva actividad extra</value>
+  </data>
+  <data name="AgendaClaseExtra_Index_Title" xml:space="preserve">
+    <value>Actividades Extras</value>
+  </data>
+  <data name="AgendaClaseExtra_Button_Search" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="AgendaClaseExtra_Button_Close" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="AgendaClaseExtra_Button_Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="AgendaClaseExtra_Confirmation_Title" xml:space="preserve">
+    <value>Confirmación</value>
+  </data>
+  <data name="AgendaClaseExtra_Confirmation_Text" xml:space="preserve">
+    <value>Recuerde que las horas extraordinarias serán pagadas al docente. Esta seguro que desea guardar los datos?.</value>
+  </data>
+  <data name="AgendaClaseExtra_Confirmation_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="AgendaClaseExtra_Confirmation_Yes" xml:space="preserve">
+    <value>Sí</value>
+  </data>
+  <data name="AgendaClaseExtra_Link_Edit" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AgendaClaseExtra_Link_Edit_Title" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="AgendaClaseExtra_Edit_Title" xml:space="preserve">
+    <value>Editar actividad extra</value>
+  </data>
+  <data name="AgendaClaseExtra_Link_Details" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AgendaClaseExtra_Link_Details_Title" xml:space="preserve">
+    <value>Detalles</value>
+  </data>
+  <data name="AgendaClaseExtra_Details_Title" xml:space="preserve">
+    <value>Detalle de actividad extra</value>
+  </data>
+  <data name="AgendaClaseExtra_Button_Edit" xml:space="preserve">
+    <value>Editar la actividad extra</value>
+  </data>
+  <data name="AgendaClaseExtra_Button_Create" xml:space="preserve">
+    <value>Crear una nueva actividad extra</value>
+  </data>
+  <data name="AgendaClaseExtra_Link_Create" xml:space="preserve">
+    <value>Nueva</value>
+  </data>
+  <data name="AgendaClaseExtra_Link_Create_Title" xml:space="preserve">
+    <value>Crear nueva actividad extra</value>
+  </data>
+  <data name="AgendaClaseExtra_Delete_Confirmation_Title" xml:space="preserve">
+    <value>Confirme eliminación</value>
+  </data>
+  <data name="AgendaClaseExtra_Delete_Confirmation_Text" xml:space="preserve">
+    <value>Confirme para eliminar la actividad extra.</value>
+  </data>
+  <data name="AgendaClaseExtra_Button_Delete" xml:space="preserve">
+    <value>Eliminar!!!</value>
+  </data>
+  <data name="AgendaClaseExtra_Link_Delete" xml:space="preserve">
+    <value>Eliminar...</value>
+  </data>
+  <data name="Justificacion_Absences_Warning" xml:space="preserve">
+    <value>Recuerde que al justificar esta(s) inasistencia(s), también se creará un registro de inasistencia para los estudiantes, el cual deberá ser justificado.</value>
+  </data>
+  <data name="DiarioTematicoEditar" xml:space="preserve">
+    <value>Editar Diario Temático</value>
+  </data>
+  <data name="ClaseExtraViewModel.TipoActividad_1" xml:space="preserve">
+    <value>Clase extra</value>
+  </data>
+  <data name="Justificacion_Docente_Individual_Justify_Info" xml:space="preserve">
+    <value>Para justificar las inasistencias del docente, debe marcar los checklist y presionar el botón “Justificar seleccionados”.</value>
+  </data>
+  <data name="Justificacion_Docente_Masiva_Justify_Info" xml:space="preserve">
+    <value>Para justificar las inasistencias del docente, debe marcar los checklist y presionar el botón “Justificar seleccionados”. Si desea justificar la falta a todos los docentes debe presionar el botón “Justificar todas”, sin marcar ninguno de los checks.</value>
+  </data>
+  <data name="Justificacion_Estudiante_Individual_Justify_Info" xml:space="preserve">
+    <value>Para justificar las inasistencias del estudiante, debe marcar los checklist y presionar el botón “Justificar seleccionados”.</value>
+  </data>
+  <data name="Justificacion_Estudiante_Masiva_Justify_Info" xml:space="preserve">
+    <value>Para justificar las inasistencias del docente, debe marcar los checklist y presionar el botón “Justificar seleccionados”. Si desea justificar la falta a todos los estudiantes debe presionar el botón “Justificar todas”, sin marcar ninguno de los checks.</value>
+  </data>
+  <data name="ReporteAcotadoViewModel_FechaInicio_DisplayName" xml:space="preserve">
+    <value>Desde:</value>
+  </data>
+  <data name="ReporteAcotadoViewModel_FechaFin_DisplayName" xml:space="preserve">
+    <value>Hasta:</value>
+  </data>
+  <data name="ReporteDocenteViewMode_DocenteId_DisplayName" xml:space="preserve">
+    <value>Identificación del docente:</value>
+  </data>
+  <data name="ReporteEstudianteViewMode_EstudianteId_DisplayName" xml:space="preserve">
+    <value>Identificación del estudiante:</value>
+  </data>
+  <data name="ReporteCargaHoraria_Title" xml:space="preserve">
+    <value>Reporte de Carga Horaria</value>
+  </data>
+  <data name="ReporteAsistenciasDocente_Title" xml:space="preserve">
+    <value>Reporte de Asistencia del docente</value>
+  </data>
+  <data name="ReporteNovedadesDocente" xml:space="preserve">
+    <value>Reporte de Novedades del Docente</value>
+  </data>
+  <data name="ReporteAsistenciasEstudiantes_Title" xml:space="preserve">
+    <value>Reporte de Asistencias de estudiantes</value>
+  </data>
+  <data name="ReporteNovedadDocenteViewModel_CodArea_DisplayName" xml:space="preserve">
+    <value>Área:</value>
+  </data>
+  <data name="AuditoriaCriteria_Funcionalidad_DisplayName" xml:space="preserve">
+    <value>Funcionalidad:</value>
+  </data>
+  <data name="AuditoriaCriteria_Accion_DisplayName" xml:space="preserve">
+    <value>Acción:</value>
+  </data>
+  <data name="AuditoriaCriteria_Identificador_DisplayName" xml:space="preserve">
+    <value>Identificación:</value>
+  </data>
+  <data name="AuditoriaCriteria_Usuario_DisplayName" xml:space="preserve">
+    <value>Usuario:</value>
+  </data>
+  <data name="AuditoriaCriteria_FechaInicio_DisplayName" xml:space="preserve">
+    <value>Fecha desde:</value>
+  </data>
+  <data name="AuditoriaCriteria_FechaFinal_DisplayName" xml:space="preserve">
+    <value>Fecha hasta:</value>
+  </data>
+  <data name="AuditoriaItem_Identificacion_DisplayName" xml:space="preserve">
+    <value>Identificación</value>
+  </data>
+  <data name="AuditoriaItem_Usuario_DisplayName" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="AuditoriaItem_Funcionalidad_DisplayName" xml:space="preserve">
+    <value>Funcionalidad</value>
+  </data>
+  <data name="AuditoriaItem_Accion_DisplayName" xml:space="preserve">
+    <value>Acción</value>
+  </data>
+  <data name="AuditoriaItem_Fecha_DisplayName" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="AuditoriaItem_Registro_DisplayName" xml:space="preserve">
+    <value>Registro</value>
+  </data>
+  <data name="Auditoria_PageTitle" xml:space="preserve">
+    <value>Registros de Auditoría</value>
+  </data>
+  <data name="ReporteAsistenciasEstudiantesViewMode_PeriodoId_DisplayName" xml:space="preserve">
+    <value>Periodo:</value>
+  </data>
+  <data name="ReporteAsistenciasEstudiantesViewMode_FacultadId_DisplayName" xml:space="preserve">
+    <value>Facultad:</value>
+  </data>
+  <data name="ReporteAsistenciasEstudiantesViewMode_AreaId_DisplayName" xml:space="preserve">
+    <value>Área:</value>
+  </data>
+  <data name="CalculoNotasAsistencia" xml:space="preserve">
+    <value>Calcular Notas Asistencia Estudiante</value>
+  </data>
+  <data name="ReporteNovedadDocenteViewModel_CodArea_DisplayPrompt" xml:space="preserve">
+    <value>Código o Nombre</value>
+  </data>
+  <data name="ReporteNovedadDocenteViewModel_CodCaracteresValidos_DisplayName" xml:space="preserve">
+    <value>Caracteres Válidos:</value>
+  </data>
+  <data name="ReporteNovedadDocenteViewModel_CodCaracteresValidos_DisplayPrompt" xml:space="preserve">
+    <value>Código o Nombre</value>
+  </data>
+  <data name="Confirmacion_Mensajes" xml:space="preserve">
+    <value>Confirmación</value>
+  </data>
+  <data name="LinkRecuperacionClases" xml:space="preserve">
+    <value>Recuperaciones de docentes</value>
+  </data>
+  <data name="CriteriosEjecuciionGradebook" xml:space="preserve">
+    <value>Criterios Ejecución de Proceso</value>
+  </data>
+  <data name="InformacionUltimoProcesoGradebook" xml:space="preserve">
+    <value>Estado último proceso de Gradebook</value>
+  </data>
+  <data name="NumeroAlumnosRegistroAsistencia" xml:space="preserve">
+    <value>Número de Alumnos: </value>
+  </data>
+  <data name="AccionDiarioTematico" xml:space="preserve">
+    <value>Acción</value>
+  </data>
+  <data name="AsignaturaDiarioTematico" xml:space="preserve">
+    <value>Asignatura</value>
+  </data>
+  <data name="CursoDiarioTematico" xml:space="preserve">
+    <value>Curso</value>
+  </data>
+  <data name="DiaDiarioTematico" xml:space="preserve">
+    <value>Día</value>
+  </data>
+  <data name="IdentificadorCursoDiarioTematico" xml:space="preserve">
+    <value>Identificador Curso</value>
+  </data>
+  <data name="NRC" xml:space="preserve">
+    <value>NRC</value>
+  </data>
+  <data name="ParaleloDiarioTematico" xml:space="preserve">
+    <value>Paralelo</value>
+  </data>
+  <data name="PeriodoDiarioTematico" xml:space="preserve">
+    <value>Período</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Asignatura_Grilla_DisplayName" xml:space="preserve">
+    <value>Asignatura</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Identificador_Curso_DisplayName" xml:space="preserve">
+    <value>Identificador Curso</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Nrc_DisplayName" xml:space="preserve">
+    <value>NRC</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Periodo_DisplayName" xml:space="preserve">
+    <value>Período</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_EstudianteId_DisplayName" xml:space="preserve">
+    <value>Id Estudiante:</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_Numero_Detalle_Faltas_DisplayName" xml:space="preserve">
+    <value>Nº</value>
+  </data>
+  <data name="LoginMarcaAguaEjemplo" xml:space="preserve">
+    <value>nombre.apellido@udla.edu.ec</value>
+  </data>
+</root>

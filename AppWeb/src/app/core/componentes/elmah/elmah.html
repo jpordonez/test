@@ -1,0 +1,45 @@
+<div class="ContentSideSections">
+    <div class="Content100 overHidden TextShadow">
+        <span class="fontSize30 TextShadow orange mediumFont marginBottom5 dispBlock">Manejador del registro de errores.</span>
+        <!-- <span class="defaultText dispTable">This sample demonstrates a sample setup using System.js.</span> -->
+    </div>
+</div>
+
+<div class="ContentSideSections Implementation">
+    <p-dataTable [value]="cars" selectionMode="single" [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="10" [responsive]="true">
+        <header>Lista de inconvenientes en el sistema</header>
+        <p-column field="maquina" header="Maquina" ></p-column>
+        <p-column field="codigo" header="Codigo" ></p-column>
+        <p-column field="tipo" header="Tipo" ></p-column>
+        <p-column field="error" header="Error">
+        <ng-template let-col let-ent="rowData" pTemplate type="body">
+            <span>{{ent[col.field].substring(0,50)}}</span>
+        </ng-template>
+        </p-column>
+        <p-column field="usuario" header="Usuario" ></p-column>
+        <p-column field="fecha" header="Fecha" >
+            <ng-template let-col let-ent="rowData" pTemplate type="body">
+                <span>{{ent[col.field] | date:'yyyy/MM/dd'}}</span>
+            </ng-template>
+        </p-column>
+        <p-column field="fecha" header="Hora" >
+            <ng-template let-col let-ent="rowData" pTemplate type="body">
+                <span>{{ent[col.field] | date:'HH:mm:ss'}}</span>
+            </ng-template>
+        </p-column>
+        <footer><div class="ui-helper-clearfix" style="width:100%"><button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Add"></button></div></footer>
+    </p-dataTable>
+
+    <p-dialog header="Traza del fallo" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"
+        width="600" height="500">
+        <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad" *ngIf="car">
+            <textarea pInputTextarea [(ngModel)]="car.error" autoResize="autoResize" style="height:360">
+            </textarea>
+        </div>
+        <footer>
+            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">                
+                <button type="button" pButton icon="fa-check" (click)="displayDialog = false" label="Cerrar"></button>
+            </div>
+        </footer>
+    </p-dialog>
+</div>

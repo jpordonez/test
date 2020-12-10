@@ -1,0 +1,23 @@
+﻿using System.Collections.Generic;
+
+namespace $rootnamespace$
+{
+
+    public class ItemModeloVista
+    {
+        public int Id { get; set; }
+        public string Correo { get; set; }
+        public bool Reenviar { get; set; }
+    }
+
+    public class $fileinputname$ModeloVista
+    {
+        public $fileinputname$ModeloVista()
+        {
+            Items = new List<ItemModeloVista>();
+        }
+        public int Id { get; set; }        
+        public List<ItemModeloVista> Items { get; set; }
+    }
+
+}

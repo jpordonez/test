@@ -1,0 +1,149 @@
+<p-fieldset legend="Criterios de Búsqueda" toggleable="true">
+  <form [formGroup]="criteriaForm" (ngSubmit)="resetearPaginacionYBuscar()">
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-12">
+        <div class="ui-g-12 ui-md-6">
+          <span class="md-inputfield">
+            <input formControlName="Codigo" type="text" pInputText>
+            <label>Código</label>
+          </span>
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <div class="ui-g-12" style="text-align: center;">
+        <button type="submit" pButton icon="ui-icon-search" label="Buscar"></button>
+        <button type="button" pButton icon="ui-icon-clear" label="Limpiar" (click)="limpiarCriteria()"></button>
+      </div>
+    </p-footer>
+  </form>
+</p-fieldset>
+<BR/>
+<p-dataTable #dtbuscador [value]="lista" selectionMode="single" [(selection)]="seleccionado" [lazy]="true" [rows]="tamanioPagina"
+  [paginator]="true" [totalRecords]="totalRegistros" (onLazyLoad)="buscarPaginado($event)" [emptyMessage]="tablaSinDatos">
+  <p-header>
+    <div class="ui-helper-clearfix">
+      <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:2px">
+        #{Entidad}s
+      </span>
+      <button type="button" pButton icon="fa-plus" style="float:right" (click)="nuevo()" label="Nuevo"></button>
+    </div>
+  </p-header>
+  <p-column field="PeriodoAcademico" header="Periodo Académico"></p-column>
+  <p-column field="ProgramaAcademico" header="Programa Académico"></p-column>
+  <p-column field="Centro" header="Centro"></p-column>
+  <p-column field="Modulo" header="Modulo"></p-column>
+  <p-column field="Instructor" header="Instructor"></p-column>
+  <p-column field="Descripcion" header="Descripcion"></p-column>
+  <p-column field="FechaCreacion" header="Fecha de Creación" [style]="{'width':'120px','text-align':'center'}">
+    <ng-template let-col let-ent="rowData" pTemplate="body">
+      <span>{{ent[col.field] | date:'dd/MM/yyyy'}}</span>
+    </ng-template>
+  </p-column>
+  <!--<p-column field="EsGenerico" header="Es Generico">
+		<ng-template let-col let-ent="rowData" pTemplate="body">
+			<span>{{ent[col.field] | boolToCadena:'Si':'No'}}</span>
+		</ng-template>
+	</p-column>-->
+  <p-column header="Acción">
+    <ng-template pTemplate="body" let-i="rowIndex">
+      <button pButton type="button" (click)="editar(i)" pTooltip="Editar" tooltipPosition="left" icon="ui-icon-edit"></button>
+      <button pButton type="button" (click)="visualizar(i)" pTooltip="Visualizar" tooltipPosition="left" icon="ui-icon-pageview"></button>
+      <button pButton type="button" (click)="eliminar(i)" pTooltip="Eliminar" tooltipPosition="left" icon="ui-icon-delete"></button>
+    </ng-template>
+  </p-column>
+</p-dataTable>
+<p-blockUI [blocked]="alertaEntidad.esBloquear" [target]="pnl"></p-blockUI>
+<p-dialog header="{{alertaEntidad.titulo}}" [(visible)]="alertaEntidad.esVisible" [modal]="true" showEffect="fade" [responsive]="true"
+  [draggable]="false" [resizable]="false" [closable]="true" width="800">
+  <div class="ui-g">
+    <form [formGroup]="entidadForm">
+      <div class="modal-body">
+        <p-panel #pnl class="pnlSinBarraDeTitulo">
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-12">
+              <div class="ui-g-12 ui-md-6">
+                <span class="md-inputfield">
+                  <input formControlName="Codigo" type="text" pTooltip="Ingrese un código de catalogo máximo 15 carácteres." pInputText [readOnly]="true"
+                  />
+                  <label>Código</label>
+                </span>
+              </div>
+              <div class="ui-g-12 ui-md-6">
+                <span class="md-inputfield">
+                  <input formControlName="Instructor" type="text" pTooltip="Ingrese un nombre máximo 80 carácteres." pInputText/>
+                  <label>Instructor</label>
+                </span>
+              </div>
+            </div>
+            <div class="ui-g-12">
+              <div class="ui-g-12 ui-md-2">
+                <label for="dropdown">Periodo Académico</label>
+              </div>
+              <div class="ui-g-12 ui-md-4">
+                <p-dropdown formControlName="PeriodoAcademicoId" [options]="periodosAcademicos" [autoWidth]="false"></p-dropdown>
+              </div>
+              <div class="ui-g-12 ui-md-2">
+                <label for="dropdown">Programa Académico</label>
+              </div>
+              <div class="ui-g-12 ui-md-4">
+                <p-dropdown formControlName="ProgramaAcademicoId" [options]="programasAcademicos" [autoWidth]="false"></p-dropdown>
+              </div>
+            </div>
+            <div class="ui-g-12">
+              <div class="ui-g-12 ui-md-2">
+                <label for="dropdown">Centro</label>
+              </div>
+              <div class="ui-g-12 ui-md-4">
+                <p-dropdown formControlName="CentroId" [options]="centros" [autoWidth]="false"></p-dropdown>
+              </div>
+              <div class="ui-g-12 ui-md-2">
+                <label for="dropdown">Módulo</label>
+              </div>
+              <div class="ui-g-12 ui-md-4">
+                <p-dropdown formControlName="ModuloId" [options]="modulos" [autoWidth]="false"></p-dropdown>
+              </div>
+            </div>
+            <div class="ui-g-12">
+              <p-fieldset legend="Descripción">
+                <textarea rows="5" cols="30" formControlName="Descripcion" pInputTextarea></textarea>
+              </p-fieldset>
+            </div>
+            <BR/>
+            <p-dataTable [value]="seleccionado.Items" selectionMode="single" [scrollable]="true" scrollHeight="250px" [emptyMessage]="tablaSinDatos">
+              <p-header style="text-align: left;">
+                <div class="ui-helper-clearfix">
+                  <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:2px">
+                    #{Entidad}_Items
+                  </span>
+                  <button type="button" pButton icon="fa-plus" style="float:right" (click)="nuevoItem()" label="Nuevo"></button>
+                </div>
+              </p-header>
+              <p-column field="Codigo" header="Código" [style]="{'width':'120px','text-align':'center'}"></p-column>
+              <p-column field="Orden" header="Orden" [style]="{'width':'80px','text-align':'center'}"></p-column>
+              <p-column field="Texto" header="Descripción"></p-column>
+              <p-column field="FechaCreacion" header="Fecha de Creación" [style]="{'width':'120px','text-align':'center'}">
+                <ng-template let-col let-ent="rowData" pTemplate="body">
+                  <span>{{ent[col.field] | date:'dd/MM/yyyy'}}</span>
+                </ng-template>
+              </p-column>
+              <p-column header="Acción" [style]="{'width':'120px','text-align':'center'}">
+                <ng-template pTemplate="body" let-i="rowIndex">
+                  <button pButton type="button" (click)="editarItem(i)" pTooltip="Editar" tooltipPosition="left" icon="ui-icon-edit"></button>
+                  <button pButton type="button" (click)="visualizarItem(i)" pTooltip="Visualizar" tooltipPosition="left" icon="ui-icon-pageview"></button>
+                  <button pButton type="button" (click)="eliminarItem(i)" pTooltip="Eliminar" tooltipPosition="left" icon="ui-icon-delete"></button>
+                </ng-template>
+              </p-column>
+            </p-dataTable>
+          </div>
+        </p-panel>
+      </div>
+    </form>
+  </div>
+  <p-footer>
+    <button *ngIf="accion==1||accion==2" type="button" (click)="guardar()" pButton label="Guardar" [disabled]="!entidadForm.valid"></button>
+    <button *ngIf="accion==3" type="button" (click)="guardar()" pButton label="Cerrar"></button>
+    <button *ngIf="accion==0" type="button" (click)="guardar()" pButton label="Eliminar"></button>
+  </p-footer>
+</p-dialog>
+<app-#{Entidad}-item></app-#{Entidad}-item>

@@ -1,0 +1,13 @@
+﻿using System;
+
+namespace $rootnamespace$
+{
+    public class $fileinputname$DTO
+    {
+
+        public int Id { get; set; }
+        public string Codigo { get; set; }
+        public DateTime FechaCreacion { get; set; }
+
+    }
+}

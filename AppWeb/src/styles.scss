@@ -1,0 +1,430 @@
+/* You can add global styles to this file, and also import other style files */
+.login-body {
+    background: none;//url(./assets/demo/images/login/fondo.png) top left no-repeat #f7f7f7;
+    background-size: 100% auto;
+    width: 100% !important;
+    height: 600px;
+    background-color: #009DD3;
+}
+
+/*Fijar ancho minimo a contenido dinamico*/
+.layout-container .layout-main {
+    padding: 96px 16px 16px 16px;
+    -moz-transition: margin-left 0.3s;
+    -o-transition: margin-left 0.3s;
+    -webkit-transition: margin-left 0.3s;
+    transition: margin-left 0.3s;
+    min-width: 1000px !important;
+}
+/*Fijar ancho minimo a contenido dinamico*/
+
+/*Para quitar opacidad a controles bloqueados*/
+body .ui-widget:disabled, body .ui-state-disabled {
+    opacity: 1;
+}
+/*Para quitar opacidad a controles bloqueados*/
+
+/*
+.ui-steps ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    overflow-x: scroll;
+}
+
+.ui-steps .ui-steps-item {
+    float: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+}
+*/
+
+/*Para fijar la manito el los nodos de nivel 2 en menu*/
+.layout-container .ultima-menu li ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+/*Para fijar la manito el los nodos de nivel 2 en menu*/
+
+#stepsFarmaciaAnonimo .ui-steps .ui-steps-item {
+    float: left;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 33%;
+    padding-left: 10%;
+}
+
+.stepsFarmaciaFarmaceuticoNuevo .ui-steps .ui-steps-item {
+    float: left;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 50%;
+}
+
+body .ui-steps:before {
+    content: ' ';
+    border: 1px solid #bdbdbd;
+    width: 80%;
+    left: 10%;
+    display: block;
+    position: relative;
+    top: 30px;
+}
+
+/*Para que los controles panel y fieldset 
+utilicen todo el ancho del contenedor padre*/
+p-panel {
+    width: 100%;
+}
+
+p-fieldset {
+    width: 100%;
+}
+
+/*Para quitar el color rojo para campos invalidos*/
+body .md-inputfield input.ng-invalid ~ label {
+    color: gray;
+}
+
+/*Para ajustar la cabecera de las tablas a los botones Nuevo y fijar el titulo a la izquierda*/
+.ui-datatable .ui-datatable-caption, .ui-datatable .ui-datatable-header {
+    border-bottom: 0 none;
+    /*overflow: hidden;*//*Para evitar que floten los elementos sobre sus contenedores padres*/
+    text-align: left;
+}
+
+/*Para visualizar el control de fechas en areas que no abarcan el control*/
+/*.ui-datepicker {
+    width: 17em;
+    padding: .2em;
+    display: none;
+    position: static;
+}*/
+
+/*Hacer transparente block ui*/
+.ui-blockui.ui-widget-overlay {
+    background-color: transparent;
+}
+
+/*Hacer Transparente el fonde de la mascara de procesando*/
+#mascaraProcesando > div > div {
+    background-color: transparent;
+    border: none;
+    overflow: hidden;
+}
+#mascaraProcesando > div {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/*Para centrar las imagenes en el control Galeria*/
+.ui-galleria-panel {
+    -webkit-filter: inherit;
+    filter: inherit;
+    position: relative;
+    top: 10%;
+    left: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+/*Para ajustar la barra de titulo a todo el ancho - control galeria*/
+.ui-galleria-caption {
+    position: absolute;
+    left: 1px;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    color: #ededed;
+    padding: .2em 1em;
+    width: 100% !important;/*Agregado*/
+    bottom: 48px !important;/*Agregado*/
+}
+
+/*Para fijar el maximo alto para el contenido de farmacia entidad
+You can do it with the :nth-child() pseudo-selector.
+It is CSS3 though, and not supported in some browsers (e.g. <=IE8 & <=FF3.0 doesnt support it).*/
+#farmaciaEntidad > div > div:nth-child(2) {
+    height: auto !important;
+    max-height: 520px !important;
+}
+
+#farmaciaEntidad > div {
+    width: 80% !important;
+}
+
+/*Para evitar que los botones se ajusten a su contenedor*/
+.ui-fluid .ui-button {
+    width: auto;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+/*Para ubicar los botones ('Eleminar, Cerrar') en la cabecera del panel 'boton guardar'*/
+.botones-crud-predio {
+    margin-top: 77px;
+    padding-right: 40px;
+    position: absolute;
+    z-index: 90000;
+    width: 100%;
+}
+
+/*Para fijar scroll horizontal al contenido de la tabla predios*/
+#cemPredios > div > div:nth-child(2) {
+    overflow: auto !important;
+}
+#cemPredios > div > div:nth-child(2) > div {
+    width: 1400px;
+}
+
+//Logo Oneclick, se sobreescribe el estilo
+.layout-container .topbar .logo {
+    display: inline-block;
+    vertical-align: middle;
+    width: 200px;
+    height: 50px;
+    //background: url(./sitio/img/logo.png) top left no-repeat;
+    background-size: 200px 50px;
+    margin-top: -7px;
+}
+
+/*Para ajustar el ancho y alto de las imagenes en la galeria*/
+img.ui-panel-images {
+    width: 100%;
+    height: 100%;
+    margin-top: -50px;
+}
+
+/*Estilos de distancia entre componentes (ajuste vertical) line-height: 1em; tamaño estilo 1.5em*/
+body {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 16px;
+    line-height: 1em;
+    color: #212121;
+    -webkit-font-smoothing: antialiased;
+    padding: 0;
+    margin: 0;
+    background-color: #f7f7f7;
+    height: 100%;
+    margin-bottom: 40px;/*Para liberar espacio para el pie de pagina*/
+}
+/*Tamaño de fuente font-size: 0.95em; tamaño estilo 1em*/
+body .ui-widget-content {
+    background-color: #ffffff;
+    font-size: 0.95em;
+    border: 1px solid #bdbdbd;
+}
+/*Cambiar el tamaño fuente de las cabeceras de tabla, tamaño estilo 1em*/
+body .ui-datatable .ui-datatable-thead > tr th {
+    padding: .625em .875em;
+    background-color: #ffffff;
+    font-size: 0.95em !important;
+}
+/*Para quitar padding a los botones en nodos contenedores con la clase .ui-fluid*/
+/*Se corrigen problemas en button normales como en split button (desalineados)*/
+.ui-fluid .ui-button-text-icon-left .ui-button-text, .ui-fluid .ui-button-text-icon-right .ui-button-text {
+    padding: 0em 0em;
+}
+
+/*Para fijar alto a la tabla permisos*/
+#permisosId > div > div:nth-child(2) > div > div:nth-child(2) {
+    height: 233px !important;
+}
+
+/*Para fijar el maximo alto para el contenido de Reportes
+You can do it with the :nth-child() pseudo-selector.
+It is CSS3 though, and not supported in some browsers (e.g. <=IE8 & <=FF3.0 doesnt support it).*/
+#contenedorReporte > div > div:nth-child(2) {
+    height: 86%;
+    overflow-x: hidden;
+}
+
+/*Para fijar pie de pagina al final de la ventana siempre*/
+html {
+    height: auto;
+    min-height: 98%;
+    position: relative;
+}
+
+.layout-container .footer {
+    padding: .5em;
+    position: absolute;
+    bottom: 0;
+    width: 98%;
+    height: 40px;
+    min-width: 1000px;
+}
+/*Para fijar pie de pagina al final de la ventana siempre*/
+
+/*Para centrar verticalmente los titulos en las caberas de tablas*/
+.ui-datatable-header.ui-widget-header > p-header > div > span {
+    margin-top: 10px !important;
+}
+/*Para centrar verticalmente los titulos en las caberas de tablas*/
+
+/*Forma de Pago*/
+//Cabeceras
+p-datatable#idFormaPago > div > div > table > thead > tr > th {
+    height: 100px;
+    background-color: green;
+}
+
+/*Forma de Pago*/
+
+.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all.ui-shadow.ui-datepicker-timeonly {
+    width: 100px;
+}
+
+/*Para visualizar locaciones (predicciones) en gmap autocompletado*/
+.pac-container {
+    background-color: #fff;
+    position: absolute!important;
+    z-index: 2000 !important;
+    border-radius: 2px;
+    border-top: 1px solid #d9d9d9;
+    font-family: Arial,sans-serif;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/*Para saltar el growl sobre todo*/
+.ui-growl .ui-widget {
+    z-index: 2000 !important;
+    opacity: 1.004;
+}
+
+/*Se cambia la opacidad de 0.35 a 1 para controles deshabilitados
+Afecta a todos los controles con estado deshabilitados*/
+/*body .ui-widget:disabled, body .ui-state-disabled {
+    opacity: 1;
+    filter: Alpha(Opacity=1);
+    background-image: none;
+    cursor: auto !important;
+}*/
+
+/*Se agrega important para evitar omision del color de fondo de los botones en los footers en dialogos*/
+body .ui-dialog .ui-dialog-buttonpane .ui-button, body .ui-dialog .ui-dialog-footer .ui-button {
+    background-color: #03A9F4;
+    color: white;
+    /* box-shadow: none; */
+    /* -webkit-box-shadow: none; */
+    -moz-box-shadow: none;
+    width: auto;
+}
+
+body .ui-dialog .ui-dialog-buttonpane .ui-button:hover, body .ui-dialog .ui-dialog-footer .ui-button:hover {
+    background-color: #0277BD;
+    color: white;
+}
+/*Se agrega important para evitar omision del color de fondo de los botones en los footers en dialogos*/
+
+/*Para evitar la superposición de textos entre columnas*/
+.ui-datatable tr td {
+    word-wrap: break-word;
+}
+/*Para evitar la superposición de textos entre columnas*/
+
+/*Para fijar el color de fondo y texto de los titulos en dialogos*/
+body .ui-dialog .ui-dialog-titlebar {
+    background-color: #03A9F4;
+    color: white;
+    padding: 0.625em 1em;
+}
+
+/*icono de cerrado de dialogos*/
+body .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon .fa {
+    color: white;
+    display: inline-block;
+}
+/*Para fijar el color de fondo y texto de los titulos en alertas*/
+
+/*Para ocultar la barra de titulos en los paneles*/
+body .pnlSinBarraDeTitulo .ui-panel .ui-panel-titlebar {
+    display: none;
+}
+
+/*Para fijar en negrita los titulos de las columnas en las tablas*/
+body .ui-datatable .ui-datatable-thead > tr th .ui-column-title {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+/*Para fijar espacio de label de inputs*/
+body .md-inputfield input:focus ~ label, body .md-inputfield input.ui-state-filled ~ label, body .md-inputfield .ui-inputwrapper-focus ~ label, body .md-inputfield .ui-inputwrapper-filled ~ label {
+    top: -15px;
+    font-size: 12px;
+    color: #03A9F4;
+}
+
+/*Correccion mal renderizado dialogos con contenido dinamico*/
+#farmaciaProductoEntidad > div > div:nth-child(2) {
+    height: auto !important;
+    max-height: 520px !important;
+}
+
+#farmaciaProductoEntidad .pnlSinBarraDeTitulo > div > div:nth-child(2) > div:nth-child(2) {
+    display: none;
+}
+/*Correccion mal renderizado dialogos con contenido dinamico*/
+
+/*Estilos captcha Registro farmaceutico*/
+.captchaRegistroFarmaceutico > fieldset > div > div > p-captcha > div > div {
+    width: auto !important;
+    text-align: center;
+}
+/*Estilos captcha Registro farmaceutico*/
+
+/*Correccion mal renderizado dialogos con contenido dinamico*/
+#promocionEntidad > div > div:nth-child(2) {
+    height: auto !important;
+    max-height: 460px !important;
+    overflow: auto;
+}
+
+#promocionEntidad .pnlSinBarraDeTitulo > div > div:nth-child(2) > div:nth-child(2) {
+    display: none;
+}
+/*Correccion mal renderizado dialogos con contenido dinamico*/
+
+/*Para fijar el maximo alto para el contenido de pago entidad
+You can do it with the :nth-child() pseudo-selector.
+It is CSS3 though, and not supported in some browsers (e.g. <=IE8 & <=FF3.0 doesnt support it).*/
+.pagoEntidad .ui-dialog-content.ui-widget-content {
+    height: auto !important;
+    max-height: 520px !important;
+}
+
+#farmaciaUsuarioEntidad > div > div:nth-child(2) {
+    height: auto !important;
+    max-height: 520px !important;
+}
+
+/*Remover spinner en input type number*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+/*Remover spinner en input type number*/
+
+.login-panel {
+    text-align: center;
+    min-height: auto;
+    margin: 0 auto 0 auto;
+    background-color: #E0EFF8;
+    width: 400px;
+    padding: 0 0 0 0;
+    padding-bottom: 10px;
+    border-radius: 25px;
+}

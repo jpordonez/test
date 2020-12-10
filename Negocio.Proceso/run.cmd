@@ -1,0 +1,1 @@
+Negocio.Proceso.exe -a PROPROMOEST -u admin -r Admin

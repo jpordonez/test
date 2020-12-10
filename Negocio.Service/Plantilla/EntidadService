@@ -1,0 +1,138 @@
+﻿using Framework.EntityFramewok;
+using Framework.Logging;
+using Framework.Repository;
+using Microsoft.Practices.ServiceLocation;
+using Nucleo.Dominio;
+using System.Data.Entity;
+using Negocio.Dominio.Models;
+using System.Collections.Generic;
+using System;
+using System.Data.SqlClient;
+using System.Data;
+using Nucleo.Dominio.DTO;
+using Negocio.Dominio.Criteria;
+using Negocio.Dominio.DTO;
+using System.IO;
+using Framework.Util;
+using Framework.Constantes;
+using Newtonsoft.Json;
+using System.Linq;
+using Framework.Exception;
+using Framework;
+using Negocio.Dominio.Codigos;
+using Negocio.Dominio.Constantes;
+
+namespace $rootnamespace$
+{
+    public class $fileinputname$Service : I$fileinputname$Service
+    {
+
+		private readonly IApplication _application;
+        private static readonly ILogger log =
+            ServiceLocator.Current.GetInstance<ILoggerFactory>().Create(typeof($fileinputname$Service));
+        private readonly IRepository<$fileinputname$> _repository$fileinputname$;
+        private readonly IRepository<$fileinputname$Hijo> _repository$fileinputname$Hijo;        
+        private readonly DbContext _context;
+		private readonly Universidad _universidad;
+
+		public $fileinputname$Service(IApplication application,
+										IRepository<Universidad> repositoryUniversidad,
+            DbContext context)
+        {
+            _application = application;
+            _context = context;
+            _repository$fileinputname$ = new EntityFrameworkRepository<$fileinputname$>(context);
+            _repository$fileinputname$Hijo = new EntityFrameworkRepository<$fileinputname$Hijo>(context);
+			_universidad = repositoryUniversidad.Get(_application.GetUniversidadId());
+        }
+
+        public $fileinputname$ Get(int id)
+        {
+            return _repository$fileinputname$.GetQuery(p => p.Id == id && p.UniversidadId == _universidad.Id).FirstOrDefault();
+        }
+
+        public IPagedListMetaData<$fileinputname$DTO> GetList($fileinputname$Criteria criteria)
+        {
+			//Bloque para consumir resultados desde un sp
+			/*
+            var _manejadorSP = ServiceLocator.Current.GetInstance<IStoreProcedureRepository<$fileinputname$DTO>>();
+
+            var parametros = new List<Object>();
+
+            var periodoAcademico = new SqlParameter("@en_periodo_academico_id", SqlDbType.Int)
+            {
+                Value = criteria.PeriodoAcademicoId
+            };
+
+			var universidad = new SqlParameter("@en_universidad_id", SqlDbType.Int)
+            {
+                Value = _universidad.Id
+            };
+
+            parametros.Add(periodoAcademico);
+			parametros.Add(universidad);
+
+            var resultadoPaginado = _manejadorSP.SpConResultadosPaginado("pro_obt_encuestas", parametros, criteria.NumeroPagina);
+
+			return resultadoPaginado;
+			*/
+
+			//Bloque para consumir resultados desde Entity Framework
+			/*
+			//Criteria
+            Expression<Func<$fileinputname$, bool>> condiciones =
+                p => (string.IsNullOrEmpty(criteria.Nombre) || p.Nombre.ToUpper().Trim().Contains(criteria.Nombre.ToUpper().Trim()))
+                    && (p.UniversidadId == _universidad.Id)
+                    && (!criteria.EstadoId.HasValue || p.EstadoId == criteria.EstadoId);
+
+            var resultado = _repository$fileinputname$.GetList(criteria.NumeroPagina, condiciones, p => p.FechaDesde);
+
+            return resultado;
+			*/            
+        }
+
+        public $fileinputname$ Guardar($fileinputname$ entidad)
+        {
+			entidad.UniversidadId = _universidad.Id;
+            return _repository$fileinputname$.SaveOrUpdate(entidad);
+        }        
+
+        public $fileinputname$ Guardar($fileinputname$ entidad, IList<$fileinputname$Hijo> hijosEliminados)
+        {
+			entidad.UniversidadId = _universidad.Id;
+            //JOR: Todos los repositorios del proceso atomico deben crearse utilizando el mismo _context
+            var transaccion = _context.Database.BeginTransaction();
+            try
+            {
+                entidad = _repository$fileinputname$.SaveOrUpdate(entidad);
+
+                _repository$fileinputname$Hijo.Delete(hijosEliminados);
+
+                transaccion.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaccion.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                transaccion.Dispose();
+            }
+            return entidad;
+        }
+
+		public void Eliminar(int id)
+        {
+            var entidad = Get(id);
+            _repository$fileinputname$.Delete(entidad);
+        }
+
+		public string ObtenerCodigo$fileinputname$()
+        {
+            var _manejadorSP = ServiceLocator.Current.GetInstance<IStoreProcedureRepository<SinResultadoDTO>>();
+            return _manejadorSP.ObtenerValorSecuencia(CodigoSecuencias.$fileinputname$);
+        }
+
+    }
+}

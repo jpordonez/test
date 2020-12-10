@@ -1,0 +1,20 @@
+<div class="container">
+    <router-outlet></router-outlet>
+    <p-confirmDialog header="Confirmación" icon="fa fa-question-circle" width="425" #cd acceptLabel="Si">
+    </p-confirmDialog>
+    <p-dialog header="{{alerta.titulo}}" [(visible)]="alerta.esVisible" [modal]="true" showEffect="fade" [responsive]="true">
+        <span [innerHTML]="alerta.mensaje">
+        </span>
+        <p-footer>
+            <button type="button" pButton icon="fa-close" (click)="alerta.esVisible=false" label="Aceptar"></button>
+        </p-footer>
+    </p-dialog>
+    <p-growl [(value)]="mensajes" life="6000"></p-growl>
+    <p-dialog id="mascaraProcesando" [(visible)]="esVisibleMascaraProcesando" [modal]="true" showEffect="fade" with="300" height="300"
+        [responsive]="true" [closable]="false">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </p-dialog>
+</div>

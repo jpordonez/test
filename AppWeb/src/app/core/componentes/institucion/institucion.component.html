@@ -1,0 +1,131 @@
+<p-fieldset legend="Criterios de Búsqueda" toggleable="true">    
+	<form [formGroup]="criteriaForm" (ngSubmit)="resetearPaginacionYBuscar()">    
+		<div class="ui-g ui-fluid">
+	    	<div class="ui-g-12">
+	    		<div class="ui-g-12 ui-md-6">
+	                <span class="md-inputfield">
+	                    <input formControlName="Ruc" type="text" pInputText>
+	                    <label>Ruc</label>
+	                </span>
+	            </div>
+	            <div class="ui-g-12 ui-md-6">
+	                <span class="md-inputfield">
+	                    <input formControlName="Nombres" type="text" pInputText>
+	                    <label>Nombres</label>
+	                </span>
+	            </div>	            
+		    </div>		    
+		</div>
+		<p-footer>
+		    <div class="ui-g-12" style="text-align: center;">
+		        <button type="submit" pButton icon="ui-icon-search" label="Buscar"></button>
+				<button type="button" pButton icon="ui-icon-clear" label="Limpiar"
+                (click)="limpiarCriteria()"></button>
+		    </div>
+		</p-footer>
+	</form> 
+</p-fieldset>
+<BR/>
+<p-dataTable #dtbuscador [value]="lista" selectionMode="single" [(selection)]="seleccionado"
+	[lazy]="true" [rows]="tamanioPagina" [paginator]="true" [totalRecords]="totalRegistros" 
+	(onLazyLoad)="buscarPaginado($event)" [emptyMessage]="tablaSinDatos">
+	<p-header>
+		<div class="ui-helper-clearfix">
+			<span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:2px">
+	            Instituciones
+	        </span>
+			<button type="button" pButton icon="fa-plus" style="float:right" (click)="nuevo()" label="Nuevo"></button>
+		</div>
+	</p-header>
+	<p-column field="Ruc" header="Ruc"></p-column>						
+    <p-column field="RazonSocial" header="Razon Social"></p-column>    
+    <p-column field="IncritoEnNombre" header="Inscrito En"></p-column>							
+    <p-column field="LugarInscripcion" header="Lugar Inscripcion"></p-column>
+    <p-column field="NumeroAcuerdoRegistro" header="Número Acuerdo"></p-column>    
+    <p-column header="Acción">
+	    <ng-template pTemplate="body" let-i="rowIndex">
+	    	<button pButton type="button" (click)="editar(i)" 
+	    	pTooltip="Editar" tooltipPosition="left" icon="ui-icon-edit"></button>
+	       	<button pButton type="button" (click)="visualizar(i)" 
+	       	pTooltip="Visualizar" tooltipPosition="left" icon="ui-icon-pageview"></button>
+	       	<button pButton type="button" (click)="eliminar(i)" 
+	       	pTooltip="Eliminar" tooltipPosition="left" icon="ui-icon-delete"></button>
+	    </ng-template>    
+    </p-column>			    					    
+</p-dataTable>
+<p-blockUI [blocked]="alertaEntidad.esBloquear" [target]="pnl"></p-blockUI>
+<p-dialog header="{{alertaEntidad.titulo}}" [(visible)]="alertaEntidad.esVisible" 
+    [modal]="true" showEffect="fade" [responsive]="true" [draggable]="false"
+    [resizable]="false" [closable]="true" width="800">
+        <div class="ui-g">         
+			<form [formGroup]="entidadForm" (ngSubmit)="guardar()">
+				<div class="modal-body">
+					<p-panel #pnl header="Propiedades" [style]="{'margin-top':'3px'}">
+						<div class="ui-g ui-fluid">
+					    	<div class="ui-g-12">
+					    		<p-panel header="Representante" [style]="{'margin-top':'3px'}">
+					    			<div class="ui-g ui-fluid">
+						    			<div class="ui-g-12 ui-md-4">					                
+						                    Identificación: {{representante.Identificacion}}
+							            </div>
+						    			<div class="ui-g-12 ui-md-6">					                
+						                    Nombre: {{representante.Nombres}} {{representante.Apellidos}}
+							            </div>
+										<div class="ui-g-12 ui-md-2">
+											<span class="md-inputfield">
+												<p-splitButton label="Buscar" icon="ui-icon-search"
+													(onClick)="buscarResponsable()" [model]="accionesResponsable">
+												</p-splitButton>                                                      
+											</span>
+										</div>							            
+					            	</div>
+					    		</p-panel>      
+						    </div>
+						    <div class="ui-g-12">
+						    	<div class="ui-g-12 ui-md-4">
+					                <span class="md-inputfield">
+					                    <input formControlName="Ruc" type="text" pInputText/>
+					                    <label>Ruc</label>
+					                </span>
+					            </div>
+					            <div class="ui-g-12 ui-md-8">
+					                <span class="md-inputfield">
+					                    <input formControlName="RazonSocial" type="text" pInputText/>
+					                    <label>Razon Social</label>
+					                </span>
+					            </div>					    					            
+						    </div>
+						    <div class="ui-g-12">
+						    	<div class="ui-g-12 ui-md-1">
+			                        <label for="dropdown">Inscrito En</label>
+			                    </div>
+					            <div class="ui-g-12 ui-md-3">
+				                	<p-dropdown formControlName="InscritoId" [options]="inscritosEn" [autoWidth]="false"></p-dropdown>
+					            </div>
+					            <div class="ui-g-12 ui-md-4">
+					                <span class="md-inputfield">
+					                    <input formControlName="LugarInscripcion" type="text" pInputText/>
+					                    <label>Lugar Inscripción</label>
+					                </span>
+					            </div>
+					            <div class="ui-g-12 ui-md-4">
+					                <span class="md-inputfield">
+					                    <input formControlName="NumeroAcuerdoRegistro" type="text" pInputText/>
+					                    <label>Número Acuerdo</label>
+					                </span>
+					            </div>				            
+						    </div>						        
+						</div>
+					</p-panel>					    
+				</div>
+				<p-footer>
+				    <div class="ui-g-12" style="text-align: right;">
+				    	<button *ngIf="accion==1||accion==2" type="submit" pButton label="Guardar" [disabled]="!entidadForm.valid"></button>
+				        <button *ngIf="accion==3" type="submit" pButton label="Cerrar"></button>
+				        <button *ngIf="accion==0" type="submit" pButton label="Eliminar"></button>			        
+				    </div>
+				</p-footer>
+			</form>
+	    </div>
+</p-dialog>
+<buscador-personas></buscador-personas>

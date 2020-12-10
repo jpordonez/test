@@ -1,0 +1,14 @@
+<p-dataTable [value]="servicios" selectionMode="single" [(selection)]="servicio">
+	<p-header>Servicios del sistema</p-header>
+    <p-column field="servicio" header="Servicio"></p-column>
+    <p-column header="Acción">
+	    <ng-template pTemplate="body" let-i="rowIndex">
+	        <button pButton type="button" label="Realizar" (click)="ejecutarAccion(i)"></button>
+	    </ng-template>    
+    </p-column>
+    <p-column field="resultado" header="Resultado">
+    	<ng-template let-col let-ser="rowData" pTemplate="body">
+	         <span>{{ser[col.field]}}</span>
+	    </ng-template>
+    </p-column>
+</p-dataTable>

@@ -1,0 +1,86 @@
+<div class="ui-g">
+  <form [formGroup]="representanteForm">
+    <div class="ui-g ui-fluid">
+      <p-fieldset legend="Datos Generales">
+        <div class="ui-g-12">
+          <div class="ui-g-12 ui-md-3">
+            <label for="dropdown">Tipo de Identificación</label>
+          </div>
+          <div class="ui-g-12 ui-md-3">
+            <p-dropdown formControlName="TipoDocumento" [options]="tiposDocumento" [autoWidth]="false" 
+            (onChange)="haCambiadoTipoIdentificacion($event)"></p-dropdown>
+          </div>
+          <div class="ui-g-12 ui-md-6">
+            <span class="md-inputfield">
+                            <input formControlName="Identificacion" type="text" 
+                            pTooltip="Ingrese una identificación de 10 a 20 carácteres." pInputText
+                            (focusout)="validarIdentificacion()" (ngModelChange)="haCambiadoIdentificacion()"/>
+                            <label>Identificación</label>
+                        </span>
+          </div>
+        </div>
+        <div class="ui-g-12">
+          <div class="ui-g-12 ui-md-6">
+            <span class="md-inputfield">
+                            <input formControlName="PrimerNombre" type="text" pInputText/>
+                            <label>Primer Nombre</label>
+                        </span>
+          </div>
+          <div class="ui-g-12 ui-md-6">
+            <span class="md-inputfield">
+                            <input formControlName="SegundoNombre" type="text" pInputText/>
+                            <label>Segundo Nombre</label>
+                        </span>
+          </div>
+        </div>
+        <div class="ui-g-12">
+          <div class="ui-g-12 ui-md-6">
+            <span class="md-inputfield">
+                            <input formControlName="PrimerApellido" type="text" pInputText/>
+                            <label>Primer Apellido</label>
+                        </span>
+          </div>
+          <div class="ui-g-12 ui-md-6">
+            <span class="md-inputfield">
+                            <input formControlName="SegundoApellido" type="text" pInputText/>
+                            <label>Segundo Apellido</label>
+                        </span>
+          </div>
+        </div>
+        <div class="ui-g-12">
+          <div class="ui-g-12 ui-md-6">
+            <span class="md-inputfield">
+                            <p-inputMask formControlName="Telefono" mask="099999999"
+                            pTooltip="Código de área (07) - Número (2563965)"></p-inputMask>
+                            <label>Teléfono Convencional</label>
+                        </span>
+          </div>
+          <div class="ui-g-12 ui-md-6">
+            <span class="md-inputfield">
+                            <p-inputMask formControlName="Movil" mask="0999999999"
+                            pTooltip="Ingrese un número de celular, 10 dígitos son permitidos."></p-inputMask>
+                            <label>Celular</label>
+                        </span>
+          </div>
+        </div>
+        <div class="ui-g-12">
+          <div class="ui-g-12 ui-md-6">
+            <span class="md-inputfield">
+                            <input formControlName="Correo" type="text" pInputText/>
+                            <label>Correo</label>
+                        </span>
+          </div>
+          <div class="ui-g-12 ui-md-6">
+            <span class="md-inputfield">
+                            <input formControlName="ConfirmarCorreo" type="text" pInputText/>
+                            <label>Confirmar Correo</label>
+                        </span>
+          </div>
+        </div>
+      </p-fieldset>
+    </div>
+    <div class="ui-g-12" style="text-align: right;">
+      <button type="submit" pButton label="Guardar" (click)="guardar()"></button>
+    </div>
+  </form>
+</div>

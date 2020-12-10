@@ -1,0 +1,7 @@
+﻿Encontré la caché de elementos en mi directorio de perfil de usuario:
+
+% appdata% \ Microsoft \ VisualStudio \ 15.0_2aeb024f \ itemtemplatescache.
+
+% localappdata% \ Microsoft \ VisualStudio \ 15.0_2aeb024f \ ItemTemplatesCache_ {00000000-0000-0000-0000-000000000000}
+
+Se eliminaron ambos directores, se reinició VS y aparece la plantilla de mi elemento.

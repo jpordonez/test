@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="231e6fbc15fa49208f2c4b8263f127f0" Name="Diagram1">
+        <EntityTypeShape EntityType="testModel.TNEG_ASIGNACION_DOCENTE" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.TNEG_COMPONENTE_EDUCATIVO" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.TNEG_MATRICULA" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.TNEG_RESULTADOS" Width="1.5" PointX="8.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.TSEG_USUARIO_ROL" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="testModel.FK_TNEG_ASI_REFERENCE_TNEG_COM" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK_TNEG_ASI_REFERENCE_TSEG_USU" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK_TNEG_RES_REFERENCE_TNEG_ASI" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK_TNEG_MAT_REFERENCE_TNEG_COM" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK_TNEG_MAT_REFERENCE_TSEG_USU" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK_TNEG_RES_REFERENCE_TNEG_MAT" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

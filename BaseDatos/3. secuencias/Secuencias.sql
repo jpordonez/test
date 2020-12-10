@@ -1,0 +1,44 @@
+CREATE SEQUENCE dbo.Encuesta  
+    START WITH 1  
+    INCREMENT BY 1 ;  
+GO
+
+CREATE SEQUENCE dbo.EncuestaGrupo 
+    START WITH 1  
+    INCREMENT BY 1 ;  
+GO
+
+CREATE SEQUENCE dbo.Pregunta
+    START WITH 1  
+    INCREMENT BY 1 ;  
+GO
+
+CREATE SEQUENCE dbo.Opcion
+    START WITH 1  
+    INCREMENT BY 1 ;  
+GO
+
+CREATE SEQUENCE dbo.Universidad  
+    START WITH 1  
+    INCREMENT BY 1 ;  
+GO
+
+CREATE SEQUENCE dbo.Programa 
+    START WITH 1  
+    INCREMENT BY 1 ;  
+GO
+
+CREATE SEQUENCE dbo.PeriodoAcademico
+    START WITH 1  
+    INCREMENT BY 1 ;  
+GO
+
+CREATE SEQUENCE dbo.Modulo
+    START WITH 1  
+    INCREMENT BY 1 ;  
+GO
+
+CREATE SEQUENCE dbo.Centro
+    START WITH 1  
+    INCREMENT BY 1 ;  
+GO

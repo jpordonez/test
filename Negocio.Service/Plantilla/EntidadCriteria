@@ -1,0 +1,12 @@
+﻿using System;
+
+namespace $rootnamespace$
+{
+    [Serializable]
+    public class $fileinputname$Criteria
+    {
+        public string Codigo { get; set; }
+        public int? PeriodoAcademicoId { get; set; }
+        public int NumeroPagina { get; set; }
+    }
+}

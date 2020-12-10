@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="IdentificacionRequerida" xml:space="preserve">
+    <value>El Campo Identificación es requerido</value>
+  </data>
+  <data name="NoFoundRecordsMessage" xml:space="preserve">
+    <value>No se encontraron resultados para la búsqueda propuesta</value>
+  </data>
+  <data name="NoSelectedAbsences_ErrorMessage" xml:space="preserve">
+    <value>Debe seleccionar al menos una inasistencia.</value>
+  </data>
+  <data name="Consultas_MisAsistencias_WrongIdErrorMessage" xml:space="preserve">
+    <value>No tiene registro de asistencias.</value>
+  </data>
+  <data name="Consultas_MisAsistencias_WrongRoleErrorMessage" xml:space="preserve">
+    <value>Error de acceso: rol de usuario incorrecto.</value>
+  </data>
+  <data name="Consultas_MisAsistencias_WrongUserErrorMessage" xml:space="preserve">
+    <value>Error de acceso: usuario incorrecto.</value>
+  </data>
+  <data name="Consultas_AsistenciasEstudiante_WrongIdErrorMessage" xml:space="preserve">
+    <value>Valor de cédula incorrecta.</value>
+  </data>
+  <data name="Consultas_AsistenciaEstudiante_NoRecordsFound" xml:space="preserve">
+    <value>El alumno no presenta registros de asistencia.</value>
+  </data>
+  <data name="AgendaClasesExtra_EditionSave_SavedSuccessfully" xml:space="preserve">
+    <value>La clase extra ha sido guardada satisfactoriamente.</value>
+  </data>
+  <data name="ClaseExtraViewModel_Fecha_Range_ErrorMessage" xml:space="preserve">
+    <value>Rango de fecha no válida.</value>
+  </data>
+  <data name="AgendaClasesExtra_Delete_DeletedSuccessfully" xml:space="preserve">
+    <value>La clase extra ha sido eliminada satisfactoriamente.</value>
+  </data>
+  <data name="AgendaClasesExtra_Delete_ErrorMessage" xml:space="preserve">
+    <value>Error al eliminar la entidad. Intente nuevamente.</value>
+  </data>
+  <data name="AgendaClasesExtra_Index_NoRecordsFound" xml:space="preserve">
+    <value>No se encontraron coincidencias con su búsqueda.</value>
+  </data>
+  <data name="ClaseExtraViewModel_Duplicated_ErrorMessage" xml:space="preserve">
+    <value>Ya existe una clase extra registrada con los mismos datos</value>
+  </data>
+  <data name="GuardarCorrectoDiarioTematico" xml:space="preserve">
+    <value>Su Diario Temático se ha guardado correctamente.</value>
+  </data>
+  <data name="VisualizarDiarioTematico" xml:space="preserve">
+    <value>Para visualizar sus diarios temáticos es necesario registrar asistencia a sus Estudiantes, además se debe considerar que tiene un plazo de {0} días a partir del evento de su inicio de clases para registrarlo.</value>
+  </data>
+  <data name="RangeAttribute_ValidationError" xml:space="preserve">
+    <value>El campo {0} debe estar entre {1} y {2}.</value>
+  </data>
+  <data name="RequiredAttribute_ValidationError" xml:space="preserve">
+    <value>El campo {0} es obligatorio.</value>
+  </data>
+  <data name="MaxLengthAttribute_ValidationError" xml:space="preserve">
+    <value>El campo {0} debe ser un tipo de cadena o matriz con una longitud máxima de '{1}'.</value>
+  </data>
+  <data name="DataTypeAttribute_DateValidationError" xml:space="preserve">
+    <value>El campo {0} debe ser una fecha.</value>
+  </data>
+  <data name="ConfigurationErrors_MissingApplicationSetting_ErrorMessage" xml:space="preserve">
+    <value>Missing application setting '{0}'</value>
+  </data>
+  <data name="ReporteCargaHorariaViewMode_FechaFin_CompareError" xml:space="preserve">
+    <value>La fecha final no debe ser inferior a la fecha inicial.</value>
+  </data>
+  <data name="DocenteActual_WrongId_ErrorMessage" xml:space="preserve">
+    <value>El usuario autenticado no cuenta con agendas asociadas</value>
+  </data>
+  <data name="DataTypeAttribute_CaracterEspecialValidationError" xml:space="preserve">
+    <value>Caracteres no permitidos</value>
+  </data>
+  <data name="AgendaInicioSesionSinAlumnos" xml:space="preserve">
+    <value>No puede iniciar su clase, no tiene alumnos inscritos.</value>
+  </data>
+  <data name="AgendaInicioSesionExitoso" xml:space="preserve">
+    <value>Inicio de Clase exitoso</value>
+  </data>
+  <data name="AgendaInicioSesionConAdvertencia" xml:space="preserve">
+    <value>Usted registró su asistencia pasados los {0} minutos de inicio de clases, por lo que se registrará una advertencia sobre la hora de ingreso</value>
+  </data>
+  <data name="InicioSesionNoPermitido" xml:space="preserve">
+    <value>Usted intentó registrar su asistencia fuera del tiempo máximo de ingreso permitido. Su asistencia no será registrada en el sistema</value>
+  </data>
+  <data name="RegistroAsistenciaAlumnosExito" xml:space="preserve">
+    <value>Asistencia de alumnos registrada con éxito</value>
+  </data>
+  <data name="FinalizarSesionNoSatisfactoriaPrecondiciones" xml:space="preserve">
+    <value>No se ha iniciado clase o aun no Registra Asistencia de Alumnos, por lo tanto no puede Finalizar</value>
+  </data>
+  <data name="FinalizarSesionNoSatisfactoriaTiempoPermitido" xml:space="preserve">
+    <value>No puede Finalizar Clase debido a que no está dentro del tiempo permitido</value>
+  </data>
+  <data name="FinalizarSesionExitoso" xml:space="preserve">
+    <value>Finalización de clases fue exitoso para los modulos horarios: {0}</value>
+  </data>
+  <data name="FinalizarSesionNoSatisfactoriaFueraDeRango" xml:space="preserve">
+    <value>No se Finalizó ninguna clase debido a que no está dentro del rango de finalización permitido</value>
+  </data>
+  <data name="AuditoriaRegistrarDiarioTematico" xml:space="preserve">
+    <value>El usuario {0}, registra diario temático para: {1}</value>
+  </data>
+  <data name="AuditoriaEditarDiarioTematico" xml:space="preserve">
+    <value>El usuario {0}, modifica diario temático para: {1}</value>
+  </data>
+  <data name="ActualizacionExitosa" xml:space="preserve">
+    <value>Actualización Exitosa</value>
+  </data>
+  <data name="Confirmacion_Registro_Asistencia" xml:space="preserve">
+    <value>¿Está seguro que desea registrar la asistencia?</value>
+  </data>
+  <data name="DocenteNoPoseeAgenda" xml:space="preserve">
+    <value>Usted no posee Agenda desde este instante hasta el término del día de hoy {0}.</value>
+  </data>
+  <data name="GestionUsuariosUsuarioDuplicado" xml:space="preserve">
+    <value>Ya existe un Usuario con la misma Identificación ó Cuenta</value>
+  </data>
+  <data name="GestionUsuariosUsuarioGuardadoCorrecto" xml:space="preserve">
+    <value>Usuario guardado exitosamente</value>
+  </data>
+  <data name="ErrorGenerico" xml:space="preserve">
+    <value>Existe un inconveniente, vuelva a intentar más tarde</value>
+  </data>
+  <data name="ExisteProcesoPendienteGradebook" xml:space="preserve">
+    <value>Existe proceso en Ejecución, espere a que termine el mismo para ejecutar otro proceso.</value>
+  </data>
+  <data name="ProcesoEnviadoEjecutarGradebook" xml:space="preserve">
+    <value>Proceso de Cálculo de Notas enviado a ejecutar exitosamente, verifique el estado del mismo.</value>
+  </data>
+  <data name="GestionUsuariosUsuarioEliminadoCorrecto" xml:space="preserve">
+    <value>Usuario eliminado exitosamente</value>
+  </data>
+  <data name="No_Existe_Resultado_Busqueda" xml:space="preserve">
+    <value>Para la búsqueda propuesta no existe resultados</value>
+  </data>
+  <data name="CampoIdAlumnoBanner" xml:space="preserve">
+    <value>Campo  Id Alumno Banner es Requerido</value>
+  </data>
+  <data name="CampoNRC" xml:space="preserve">
+    <value>Campo NRC es Requerido</value>
+  </data>
+  <data name="CampoPeriodo" xml:space="preserve">
+    <value>Campo Periodo es Requerido</value>
+  </data>
+</root>

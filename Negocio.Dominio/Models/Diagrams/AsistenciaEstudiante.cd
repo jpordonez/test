@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Udla.CarpetaLinea.Dominio.Models.JustificacionEstudiante" Collapsed="true">
+    <Position X="0.5" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAQAAACQAAAACCAgAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Models\JustificacionEstudiante.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TCOL_ASISTENCIA_ESTUDIANTE" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Udla.CarpetaLinea.Dominio.Models.AsistenciaEstudiante">
+    <Position X="5.25" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACICBAgCAAAAAEAAAAAAAAAAAAjAAAAAACAAAAIAA=</HashCode>
+      <FileName>Models\AsistenciaEstudiante.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TCOL_AGENDA_SALA_DOCENTE" />
+      <Property Name="TCOL_ALUMNOS_CURSO" />
+      <Property Name="TCOL_MODULO_HORARIO" />
+      <Property Name="TCOL_MODULO_HORARIO_DIA" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="TCOL_JUSTIFICACION" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Udla.CarpetaLinea.Dominio.Models.AgendaSalaDocente" Collapsed="true">
+    <Position X="10" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>yAECIAgCAAAQAQAgBACAAAAQoQChIIABCBIAAAwAAAA=</HashCode>
+      <FileName>Models\AgendaSalaDocente.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Udla.CarpetaLinea.Dominio.Models.EstudiantesCurso" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACQIAoAAAgAAAAAAKAIAAIAAYGAAAAQIiIZAJAQAA=</HashCode>
+      <FileName>Models\EstudiantesCurso.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Udla.CarpetaLinea.Dominio.Models.ModuloHorario" Collapsed="true">
+    <Position X="10" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAACAAAAAAAQAACAAAAAAAAQAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Models\ModuloHorario.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Udla.CarpetaLinea.Dominio.Models.ModuloHorarioDia" Collapsed="true">
+    <Position X="10" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACIAACAAACAAEAAACAAAAAAAAAAAAAAAAABAAAAAg=</HashCode>
+      <FileName>Models\ModuloHorarioDia.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

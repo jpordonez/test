@@ -1,0 +1,16 @@
+﻿@Html.ValidationSummary(false)
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.Label("Usuario")
+        @Html.TextBox("cuenta")
+    </div>
+    <div>
+        @Html.Label("Clave")
+        @Html.Password("clave")
+    </div>
+    <p>
+        <input type="submit" value="Ingresar" />
+    </p>
+}

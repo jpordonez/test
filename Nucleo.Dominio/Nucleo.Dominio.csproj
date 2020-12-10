@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{146C03FA-E60B-467A-A743-599C47AF016B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nucleo.Dominio</RootNamespace>
+    <AssemblyName>Nucleo.Dominio</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.5.5.0.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessRule\CuentaInactivaAccessRule.cs" />
+    <Compile Include="Administracion\Institucion.cs" />
+    <Compile Include="Administracion\Persona.cs" />
+    <Compile Include="Administracion\SitioContacto.cs" />
+    <Compile Include="Administracion\SitioSuscriptor.cs" />
+    <Compile Include="Criterias\CatalogoCriteria.cs" />
+    <Compile Include="Criterias\FuncionalidadCriteria.cs" />
+    <Compile Include="Criterias\InstitucionCriteria.cs" />
+    <Compile Include="Criterias\MenuCriteria.cs" />
+    <Compile Include="Criterias\ParametroCriteria.cs" />
+    <Compile Include="Criterias\PersonaCriteria.cs" />
+    <Compile Include="Criterias\UsuarioCriteria.cs" />
+    <Compile Include="DTO\RolParametrosDTO.cs" />
+    <Compile Include="DTO\SinResultadoDTO.cs" />
+    <Compile Include="Entidades\Auditoria.cs" />
+    <Compile Include="Entidades\EjecucionProceso.cs" />
+    <Compile Include="Entidades\ParametroOpcion.cs" />
+    <Compile Include="Fecha.cs" />
+    <Compile Include="IMenuRespository.cs" />
+    <Compile Include="Entidades\Accion.cs" />
+    <Compile Include="Entidades\Catalogo.cs" />
+    <Compile Include="Criterias\AuditoriaCriteria.cs" />
+    <Compile Include="IAuditoriaRepository.cs" />
+    <Compile Include="DTO\PersonaDTO.cs" />
+    <Compile Include="DTO\SesionDTO.cs" />
+    <Compile Include="DTO\UsuarioDTO.cs" />
+    <Compile Include="DTO\InstitucionDTO.cs" />
+    <Compile Include="Validaciones\ParametroSistemaValidator.cs" />
+    <Compile Include="Entidades\Funcionalidad.cs" />
+    <Compile Include="Menus\Menu.cs" />
+    <Compile Include="Menus\MenuItem.cs" />
+    <Compile Include="Entidades\ParametroSistema.cs" />
+    <Compile Include="Seguridad\Permiso.cs" />
+    <Compile Include="Seguridad\Rol.cs" />
+    <Compile Include="Seguridad\Sesion.cs" />
+    <Compile Include="Entidades\Sistema.cs" />
+    <Compile Include="Seguridad\Usuario.cs" />
+    <Compile Include="ISesionRepository.cs" />
+    <Compile Include="SesionCriteria.cs" />
+    <Compile Include="IApplication.cs" />
+    <Compile Include="ISesion.cs" />
+    <Compile Include="IUsuario.cs" />
+    <Compile Include="IUsuarioRepository.cs" />
+    <Compile Include="Entidades\ItemCatalogo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Temporal\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Framework\Framework.csproj">
+      <Project>{6d3bb43b-5823-4ea8-bef2-829988987167}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nucleo.Dominio.Recursos\Nucleo.Dominio.Recursos.csproj">
+      <Project>{53b38970-3bfa-47c2-8f3b-f917d57e7a67}</Project>
+      <Name>Nucleo.Dominio.Recursos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

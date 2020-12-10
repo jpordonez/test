@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Udla.CarpetaLinea.Dominio.Models.JustificacionEstudiante">
+    <Position X="0.5" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAQAAACQAAAACCAgAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Models\JustificacionEstudiante.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TCOL_ASISTENCIA_ESTUDIANTE" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Udla.CarpetaLinea.Dominio.Models.AsistenciaEstudiante" Collapsed="true">
+    <Position X="5.25" Y="1" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACICBAgCAAAAAEAAAAAAAAAAAAjAAAAAACAAAAIAA=</HashCode>
+      <FileName>Models\AsistenciaEstudiante.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="TCOL_JUSTIFICACION" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
